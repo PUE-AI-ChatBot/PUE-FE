@@ -1,14 +1,20 @@
 import React from 'react'
 import QuickButton from "./QuickButton"
-import {Box} from "@mui/material"
+import Gnb from "./GNB"
+import NavigationProvider from "./NavigationProvider"
 
-type INavigation = React.PropsWithChildren
-const Navigation = ({children}: INavigation) => {
+type INavigation = React.PropsWithChildren<{
+    quickDisable?: boolean;
+}>
+const Navigation = ({children, quickDisable}: INavigation) => {
     return (
-        <Box>
+        <NavigationProvider>
+            <Gnb />
             {children}
-            <QuickButton/>
-        </Box>
+            {
+                !quickDisable && <QuickButton/>
+            }
+        </NavigationProvider>
     )
 }
 
