@@ -7,13 +7,13 @@ assignees: ''
 
 ---
 
----
+
 ## Feature Info
  - Person in charge : 
  - Definition : 
  - Timeline :
  - ClickUp : [Task Name](https://clickup.url)
----
+
 ## Description
 
 ### Summary / Behavior
