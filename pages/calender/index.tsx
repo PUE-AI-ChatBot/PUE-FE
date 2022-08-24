@@ -115,6 +115,7 @@ const CalenderContainer = styled.div`
   }
 `;
 
+const ChartWrapper = styled.div``;
 const CalenderPage: NextPage = () => {
   const [value, setDate] = useState(new Date());
   // SSR을 위한 state와 useEffect
@@ -145,7 +146,10 @@ const CalenderPage: NextPage = () => {
             {value.toDateString()}
           </span>
         </CalenderContainer>
-        <Button variant="contained"> Charts </Button>
+        <ChartWrapper className="flex flex-col items-center border-2 w-80 px-4 space-y-2">
+          <span className="self-start"> (NAME)님 감정 분석</span>
+          <div> Chart </div>
+        </ChartWrapper>
       </Wrapper>
     </Layout>
   );
