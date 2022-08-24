@@ -7,7 +7,7 @@ type IMessage = MessageRes;
 export const MessageLeft = ({text}: IMessage) => {
     return (
         <Box display={"flex"} columnGap={1.5} pt={2}>
-            <Avatar sx={{width: 50, height: 50}}>퓨이</Avatar>
+            <Avatar sx={{width: 48, height: 48}}>퓨이</Avatar>
             <Box mt={1}>
                 <Typography color={"gray"}>
                     퓨이

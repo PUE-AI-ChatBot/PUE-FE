@@ -1,6 +1,6 @@
 import type {NextPage} from "next"
 import ChatContainer from "../../components/chat"
-import {Box} from "@mui/material"
+import {Container} from "@mui/material"
 import {useLayoutEffect} from "react"
 
 export interface IChat {
@@ -28,9 +28,9 @@ const Chat: NextPage = () => {
     }, [])
 
     return (
-        <Box sx={{height: '93vh', px: 2}}>
+        <Container sx={{height: '93vh'}} disableGutters>
             <ChatContainer/>
-        </Box>
+        </Container>
     )
 }
 
