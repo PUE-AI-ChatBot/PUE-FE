@@ -7,6 +7,7 @@ export const SCREEN_NAME: {[key: string]: string} = {
     home: "PUE",
     chat : "상담",
     profile: "내 프로필",
+    calender: "감정 캘린더",
     calendar: "감정 캘린더",
 }
 

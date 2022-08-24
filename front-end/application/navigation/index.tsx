@@ -10,17 +10,13 @@ import NavigationProvider from "./NavigationProvider"
  *   provider : navigation local context 이므로 application에 위치
  *   UI : presentation이므로 component/navigation에 위치
  */
-type INavigation = React.PropsWithChildren<{
-    quickDisable?: boolean;
-}>
-const Navigation = ({children, quickDisable}: INavigation) => {
+type INavigation = React.PropsWithChildren<{}>
+const Navigation = ({children}: INavigation) => {
     return (
         <NavigationProvider>
-            <Gnb />
+            <Gnb/>
             {children}
-            {
-                !quickDisable && <QuickButton/>
-            }
+            <QuickButton/>
         </NavigationProvider>
     )
 }
