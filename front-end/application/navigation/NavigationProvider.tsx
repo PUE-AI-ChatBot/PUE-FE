@@ -3,7 +3,7 @@ import {useRouter} from "next/router"
 
 type IScreenState = [string, Dispatch<SetStateAction<string>>]
 
-export const SCREEN_NAME = {
+export const SCREEN_NAME: {[key: string]: string} = {
     home: "PUE",
     chat : "상담",
     profile: "내 프로필",
@@ -22,7 +22,7 @@ type INavigationProvider = React.PropsWithChildren;
 const NavigationProvider = ({children}: INavigationProvider) => {
     const router = useRouter()
     const screenInit = router.pathname.split('/').pop()
-    const screenState = useState(screenInit || SCREEN_NAME.home)
+    const screenState = useState(screenInit && SCREEN_NAME[screenInit] || SCREEN_NAME.home)
 
     return (
         <NavigationContext.Provider value={screenState}>
