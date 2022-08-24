@@ -1,6 +1,7 @@
 import type {NextPage} from "next"
 import ChatContainer from "../../components/chat"
-import {Container} from "@mui/material"
+import {Box} from "@mui/material"
+import {useLayoutEffect} from "react"
 
 export interface IChat {
     isUser: boolean;
@@ -16,15 +17,20 @@ export interface IChat {
  *   말풍선, 선택지, 입력 UI, layout - application
  *   채팅 메세지 전달 - domain
  *   socket 통신 담당 - infra
- *
- *
  */
 
 const Chat: NextPage = () => {
+    useLayoutEffect(() => {
+        document.body.style.backgroundColor = 'mintcream'
+        return () => {
+            document.body.style.backgroundColor = 'white'
+        }
+    }, [])
+
     return (
-        <Container sx={{height: '93vh', bgcolor:'mintcream'}}>
+        <Box sx={{height: '93vh', px: 2}}>
             <ChatContainer/>
-        </Container>
+        </Box>
     )
 }
 

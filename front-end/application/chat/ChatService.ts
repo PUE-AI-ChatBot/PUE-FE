@@ -53,7 +53,7 @@ class ChatService {
 
     getMessageLog() {
         const ret = Array(4).fill(null).map(() => MOCK_MESSAGE)
-        return ret.concat(MOCK_SEND_MESSAGE)
+        return ret.concat(MOCK_SEND_MESSAGE, MOCK_SEND_MESSAGE)
     }
 }
 
