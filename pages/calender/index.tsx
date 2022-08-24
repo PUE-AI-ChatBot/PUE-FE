@@ -1,14 +1,13 @@
 import type { NextPage } from "next";
 import Layout from "../../components/layout";
 import type { IChat } from "../chat";
-import Button from "@mui/material/Button";
 import styled from "styled-components";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 import { useEffect, useState } from "react";
-import { moveMessagePortToContext } from "worker_threads";
 import moment from "moment";
+import MultiSeries from "../../components/charts/multiseries";
 
 interface IUserDate {
   name: string;
@@ -123,7 +122,7 @@ const CalenderPage: NextPage = () => {
   useEffect(() => setVisible(true), []);
   return (
     <Layout back title="캘린더" quickMenu>
-      <Wrapper className="flex flex-col pt-6 space-y-8">
+      <Wrapper className="flex flex-col pt-2 space-y-6">
         <AIDisplay className="flex w-full justify-between px-36">
           <Character className="w-24 h-24 rounded-full bg-slate-600" />
           <Bubble className="my-auto border-2 rounded-md p-4 border-gray-300">
@@ -146,9 +145,11 @@ const CalenderPage: NextPage = () => {
             {value.toDateString()}
           </span>
         </CalenderContainer>
-        <ChartWrapper className="flex flex-col items-center border-2 w-80 px-4 space-y-2">
-          <span className="self-start"> (NAME)님 감정 분석</span>
-          <div> Chart </div>
+        <ChartWrapper className="flex flex-col items-center w-96 px-4">
+          <span className="self-start "> (NAME)님 감정 분석</span>
+          <div className="-mt-6">
+            <MultiSeries />
+          </div>
         </ChartWrapper>
       </Wrapper>
     </Layout>
