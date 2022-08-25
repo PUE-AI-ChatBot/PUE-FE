@@ -1,19 +1,19 @@
 ## Description
+- Describe your changes in detail
 
-Fixes # (issue)
-<!-- 이슈 번호, 개요 작성 -->
+## Related Issue
+- This project only accepts pull requests related to open issues 
+ - If suggesting a new feature or change, please discuss it in an issue first 
+ - If fixing a bug, there should be an issue describing it with steps to reproduce 
+ - Please link to the issue here: 
 
+## Motivation and Context
+- Why is this change required? What problem does it solve? 
+- If it fixes an open issue, please link to the issue here. 
 
-### Type of change
-<!-- 기능 설명 -->
+## How Has This Been Tested?
+- Please describe in detail how you tested your changes.
+- Include details of your testing environment, and the tests you ran to see how your change affects other areas of the code, etc.
 
+## Screenshots
 
-### Todo
-<!-- 개선할 점이 있으면 작성-->
-
-
-### ScreenShot
-<!-- 가능하다면 스크린샷 추가-->
-
-## For Reviewer
-<!-- 참고 사항 작성 -->
