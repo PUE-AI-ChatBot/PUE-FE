@@ -1,15 +1,15 @@
-import type {NextPage} from "next"
-import ChatContainer from "../../components/chat"
-import {Container} from "@mui/material"
-import {useLayoutEffect} from "react"
+import type { NextPage } from 'next';
+import ChatContainer from '../../components/chat';
+import { Container } from '@mui/material';
+import { useLayoutEffect } from 'react';
 
 export interface IChat {
-    isUser: boolean;
-    message: string;
-    date: Date;
-    option?: string;
-    emotion?: "Positive" | "Negative" | "Sad" | "";
-    hasError: boolean;
+  isUser: boolean;
+  message: string;
+  date: Date;
+  option?: string;
+  emotion?: 'Positive' | 'Negative' | 'Sad' | '';
+  hasError: boolean;
 }
 
 /**
@@ -20,18 +20,18 @@ export interface IChat {
  */
 
 const Chat: NextPage = () => {
-    useLayoutEffect(() => {
-        document.body.style.backgroundColor = 'mintcream'
-        return () => {
-            document.body.style.backgroundColor = 'white'
-        }
-    }, [])
+  useLayoutEffect(() => {
+    document.body.style.backgroundColor = 'mintcream';
+    return () => {
+      document.body.style.backgroundColor = 'white';
+    };
+  }, []);
 
-    return (
-        <Container sx={{height: '93vh'}} disableGutters>
-            <ChatContainer/>
-        </Container>
-    )
-}
+  return (
+    <Container sx={{ height: '93vh' }} disableGutters>
+      <ChatContainer />
+    </Container>
+  );
+};
 
-export default Chat
+export default Chat;
