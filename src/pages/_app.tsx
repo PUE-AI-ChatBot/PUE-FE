@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import '../styles/globals.css';
+import '../../styles/globals.css';
 import Navigation from '../application/navigation';
 import { CssBaseline } from '@mui/material';
 
