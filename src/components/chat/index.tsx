@@ -11,27 +11,21 @@ const ChatContainer = ({}: IChat) => {
 
   const addMessage = (m: MessageRes) => setMessages(prev => prev.concat(m));
 
-  const handleSendMessage = useCallback((message: string) => {
+  const handleSendMessage = useCallback(async (message: string) => {
     /**
      * @todo
-     *   create Message Domain
+     *   select type MessageRes? Chat?
      */
-    const param: MessageRes = {
-      text: message,
-      user: { name: 'sohee', photo: '' },
-    };
-    addMessage(param);
+    const {
+      properties: { message: text, date, userId },
+    } = await chatService.sendChat(message);
 
-    /**
-     * @todo
-     *   send Message Domain to ChatService
-     */
-    chatService.sendMessage();
+    addMessage({ text, user: { name: 'sohee', photo: '' } });
   }, []);
 
   useEffect(() => {
     chatService.addListener(addMessage);
-    setMessages(chatService.getMessageLog());
+    (async () => setMessages(await chatService.getChatLog()))();
     return () => chatService.clear();
   }, []);
 
