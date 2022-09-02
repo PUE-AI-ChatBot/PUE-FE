@@ -1,14 +1,14 @@
 import { ChatRepository } from '../../domain/chat/ChatRepository';
 import { Chat } from '../../domain/chat/Chat';
-import { ChatApi } from './ChatApi';
+import { ChatApi, ChatApiProperty } from './ChatApi';
+import { ChatEvent } from '../../domain/chat/ChatTypes';
 import httpClient, { HttpClient } from '../client/HttpClient';
 import socketClient, { SocketClient } from '../client/SocketClient';
 
 export class ChatResource implements ChatRepository {
   /**
    * @todo
-   *   chat 상태 관리
-   *   http, socket mock 제거
+   *   chat 상태 관리 여부?
    */
   private store = {};
 
@@ -18,19 +18,25 @@ export class ChatResource implements ChatRepository {
   ) {}
 
   async getChatLog(userId: number): Promise<Chat[]> {
-    const chatLogApi = await this.http.get<ChatApi[]>('MOCK');
-    const chatLog = chatLogApi.map(api => api.toDomain());
+    const chatLogApi = await this.http.get<ChatApiProperty[]>(`MOCK/${userId}`);
+    const chatLog = chatLogApi.map(api => ChatApi.toDomain(api));
     return chatLog;
   }
 
-  async receiveChat(userId: number): Promise<Chat> {
-    const socketChat = await this.socket.mock<ChatApi>();
-    return socketChat.toDomain();
+  receiveChat(callback: (data: Chat) => void) {
+    this.socket.onReceive(ChatEvent.receive, callback);
   }
 
-  async sendChat(message: string, userId: number): Promise<Chat> {
-    const socketChat = await this.socket.mock<ChatApi>();
-    return socketChat.toDomain();
+  sendChat(chat: Chat): void {
+    this.socket.emitData(ChatEvent.send, chat.properties);
+  }
+
+  connect(): void {
+    this.socket.connect();
+  }
+
+  disConnect(): void {
+    this.socket.disconnect();
   }
 }
 

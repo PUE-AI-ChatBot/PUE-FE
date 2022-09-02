@@ -9,7 +9,13 @@ import { Chat } from './Chat';
  */
 
 export interface ChatRepository {
-  sendChat(message: string, userId: number): Promise<Chat>;
-  receiveChat(userId: number): Promise<Chat>;
+  sendChat(chat: Chat): void;
+
+  receiveChat(callback: (data: Chat) => void): void;
+
   getChatLog(userId: number): Promise<Chat[]>;
+
+  connect(): void;
+
+  disConnect(): void;
 }

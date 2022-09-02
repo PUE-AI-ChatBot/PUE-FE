@@ -7,15 +7,7 @@
  *   오직 Repository 만 도메인 메서드를 사용할 수 있습니다.
  *
  */
-export type ChatDirection = 'send' | 'receive';
-
-export interface ChatProperties {
-  id: number;
-  userId: number;
-  date: string;
-  direction: ChatDirection;
-  message: string;
-}
+import { ChatDirection, ChatProperties } from './ChatTypes';
 
 export class Chat {
   /**
@@ -33,11 +25,12 @@ export class Chat {
     private readonly date: string,
     private readonly id: number,
     private readonly userId: number,
+    private readonly userName: string,
   ) {}
 
   static fromProperties(properties: ChatProperties) {
-    const { message, direction, date, id, userId } = properties;
-    return new Chat(message, direction, date, id, userId);
+    const { message, direction, date, id, userId, userName } = properties;
+    return new Chat(message, direction, date, id, userId, userName);
   }
 
   get properties() {
@@ -47,6 +40,7 @@ export class Chat {
       date: this.date,
       id: this.id,
       userId: this.userId,
+      userName: this.userName,
     };
   }
 }

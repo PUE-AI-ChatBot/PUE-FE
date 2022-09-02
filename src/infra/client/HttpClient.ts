@@ -1,6 +1,7 @@
 /**
  * @todo
  *   axios로 재작성
+ *   예외 처리
  */
 export class HttpClient {
   private base = 'MOCK_BASE';

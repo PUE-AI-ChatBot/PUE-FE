@@ -1,23 +1,12 @@
 import { ChatRepository } from '../../domain/chat/ChatRepository';
 import chatResource from '../../infra/chat/ChatResource';
-import { MOCK_MESSAGE } from '../../utils/mock';
-
-interface User {
-  name: string;
-  photo: string;
-}
-
-export interface MessageRes {
-  text: string;
-  writeAt?: Date;
-  user: User;
-}
+import { MOCK_MESSAGE, MOCK_SEND_MESSAGE } from '../../utils/mock';
+import adaptor, { Message, MessageAdaptor } from './Adaptor';
 
 class ChatService {
-  private listeners = [];
-
   constructor(
     private chatRepository: ChatRepository,
+    private messageAdaptor: MessageAdaptor,
     private userRepository: Record<string, unknown> = {},
   ) {}
 
@@ -25,27 +14,34 @@ class ChatService {
    * @todo
    *   listener 처리
    *   user domain, repository, resource 생성
+   *   import absolute path 설정
    */
-  addListener(cb: (...args: any[]) => any) {}
-
-  clear() {
-    this.listeners = [];
+  addListener(cb: (message: Message) => any) {
+    this.chatRepository.connect();
+    this.chatRepository.receiveChat(chat =>
+      cb(this.messageAdaptor.toMessage(chat)),
+    );
   }
 
-  async sendChat(message: string) {
-    const chat = await this.chatRepository.sendChat(message, 0);
-    return chat;
+  clear() {
+    this.chatRepository.disConnect();
+  }
+
+  sendChat(message: Message) {
+    this.chatRepository.sendChat(this.messageAdaptor.toChat(message));
   }
 
   async getChatLog() {
     const ret = Array(4)
       .fill(null)
-      .map(() => MOCK_MESSAGE);
+      .map(() => MOCK_MESSAGE)
+      .concat(MOCK_SEND_MESSAGE);
 
-    const logs = await this.chatRepository.getChatLog(0);
+    // const logs = await this.chatRepository.getChatLog(0);
+    // const temp = logs.map(chat => this.messageAdaptor.toMessage(chat));
     return ret;
   }
 }
 
 // singleton instance
-export const chatService = new ChatService(chatResource);
+export const chatService = new ChatService(chatResource, adaptor);

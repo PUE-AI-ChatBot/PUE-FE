@@ -1,8 +1,8 @@
 import React from 'react';
-import { MessageRes } from '../../application/chat/ChatService';
 import { Avatar, Box, Paper, Typography } from '@mui/material';
+import { Message } from '../../application/chat/Adaptor';
 
-type IMessage = MessageRes;
+type IMessage = Message;
 
 export const MessageLeft = ({ text }: IMessage) => {
   return (
