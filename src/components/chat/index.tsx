@@ -9,7 +9,9 @@ const ChatContainer = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const addMessage = (m: Message) => setMessages(prev => prev.concat(m));
+  const addMessage = (m: Message) => {
+    setMessages(prev => prev.concat(m));
+  };
 
   const handleSendMessage = useCallback(async (m: string) => {
     const message = messageAdaptor.fromText(m);
@@ -21,7 +23,6 @@ const ChatContainer = () => {
 
   useEffect(() => {
     chatService.addListener(addMessage);
-
     (async () => setMessages(await chatService.getChatLog()))();
 
     return () => chatService.clear();

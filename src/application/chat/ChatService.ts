@@ -12,7 +12,6 @@ class ChatService {
 
   /**
    * @todo
-   *   listener 처리
    *   user domain, repository, resource 생성
    *   import absolute path 설정
    */

@@ -1,22 +1,14 @@
 import { Chat } from '../../domain/chat/Chat';
-import { ChatDirection } from '../../domain/chat/ChatTypes';
 
 /**
- *
- * @param message 메세지 내용
- * @param direction 송수신 방향
- * @param date 날짜 YYYYMMDDHHMMSS
- * @param id 메세지 id
- * @param userId 유저 id
- * @private
+ * @property {string} response 응답 메세지
+ * @property {string} day YYYYMMDD
+ * @property {number} time 시분 (@todo 현재는 타임스탬프)
  */
 export interface ChatApiProperty {
-  message: string;
-  direction: ChatDirection;
-  date: string;
-  id: number;
-  userId: number;
-  userName: string;
+  response: string;
+  day: string;
+  time: number;
 }
 
 /**
@@ -27,12 +19,18 @@ export interface ChatApiProperty {
 export class ChatApi {
   static toDomain(data: ChatApiProperty): Chat {
     return Chat.fromProperties({
-      message: data.message,
-      direction: data.direction,
-      date: data.date,
-      id: data.id,
-      userId: data.userId,
-      userName: data.userName,
+      message: data.response,
+      direction: 'receive',
+      date: data.day,
+      id: 0,
+      userId: 0,
+      userName: 'PUE',
     });
+  }
+
+  static toApi({ properties }: Chat): { message: string } {
+    return {
+      message: properties.message,
+    };
   }
 }

@@ -36,12 +36,12 @@ export class MessageAdaptor {
   }
 
   toMessage(chat: Chat): Message {
-    const { message, direction, date, id, userId } = chat.properties;
+    const { message, direction, date, id, userId, userName } = chat.properties;
     return {
       text: message,
       writeAt: new Date(date),
       user: {
-        name: 'MOCK',
+        name: userName,
         photo: 'MOCK',
       },
     };
