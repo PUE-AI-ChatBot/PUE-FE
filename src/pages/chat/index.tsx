@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import ChatContainer from '../../components/chat';
+import ChatContainer from '@components/chat';
 import { Container } from '@mui/material';
 import { useEffect } from 'react';
 

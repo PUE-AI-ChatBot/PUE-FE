@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { chatService } from '../../application/chat/ChatService';
+import { chatService } from '@application/chat/ChatService';
 import { MessageLeft, MessageRight } from './Message';
-import ChatInput from '../input/ChatInput';
+import ChatInput from '@components/input/ChatInput';
 import { Box } from '@mui/material';
-import messageAdaptor, { Message } from '../../application/chat/Adaptor';
+import messageAdaptor, { Message } from '@application/chat/Adaptor';
 
 const ChatContainer = () => {
   const [messages, setMessages] = useState<Message[]>([]);

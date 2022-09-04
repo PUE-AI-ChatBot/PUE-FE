@@ -1,4 +1,4 @@
-import { Chat } from '../../domain/chat/Chat';
+import { Chat } from '@domain/chat/Chat';
 
 /**
  * @property {string} response 응답 메세지

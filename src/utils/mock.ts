@@ -1,4 +1,4 @@
-import { Message } from '../application/chat/Adaptor';
+import { Message } from '@application/chat/Adaptor';
 
 export const MOCK_MESSAGE: Message = {
   text: 'hello this is mock',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Box, Paper, Typography } from '@mui/material';
-import { Message } from '../../application/chat/Adaptor';
+import { Message } from '@application/chat/Adaptor';
 
 type IMessage = Message;
 

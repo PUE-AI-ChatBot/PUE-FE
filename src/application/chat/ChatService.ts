@@ -1,6 +1,6 @@
-import { ChatRepository } from '../../domain/chat/ChatRepository';
-import chatResource from '../../infra/chat/ChatResource';
-import { MOCK_MESSAGE, MOCK_SEND_MESSAGE } from '../../utils/mock';
+import { ChatRepository } from '@domain/chat/ChatRepository';
+import chatResource from '@infra/chat/ChatResource';
+import { MOCK_MESSAGE, MOCK_SEND_MESSAGE } from '@utils/mock';
 import adaptor, { Message, MessageAdaptor } from './Adaptor';
 
 class ChatService {

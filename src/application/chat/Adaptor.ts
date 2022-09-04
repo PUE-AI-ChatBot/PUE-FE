@@ -1,4 +1,4 @@
-import { Chat } from '../../domain/chat/Chat';
+import { Chat } from '@domain/chat/Chat';
 
 /**
  * @todo

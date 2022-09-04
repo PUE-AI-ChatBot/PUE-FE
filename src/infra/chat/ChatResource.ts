@@ -1,8 +1,8 @@
-import { ChatRepository } from '../../domain/chat/ChatRepository';
-import { Chat } from '../../domain/chat/Chat';
+import { ChatRepository } from '@domain/chat/ChatRepository';
+import { Chat } from '@domain/chat/Chat';
 import { ChatApi, ChatApiProperty } from './ChatApi';
-import httpClient, { HttpClient } from '../client/HttpClient';
-import socketClient, { SocketClient } from '../client/SocketClient';
+import httpClient, { HttpClient } from '@infra/client/HttpClient';
+import socketClient, { SocketClient } from '@infra/client/SocketClient';
 
 export enum ChatEvent {
   send = 'SEND_MESSAGE',
