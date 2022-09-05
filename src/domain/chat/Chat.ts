@@ -8,6 +8,7 @@
  *
  */
 import { ChatDirection, ChatProperties } from './ChatTypes';
+import { Moment } from 'moment';
 
 export class Chat {
   /**
@@ -17,12 +18,13 @@ export class Chat {
    * @param date 날짜 YYYYMMDDHHMMSS
    * @param id 메세지 id
    * @param userId 유저 id
+   * @param userName 유저 이름
    * @private
    */
   private constructor(
     private readonly message: string,
     private readonly direction: ChatDirection,
-    private readonly date: string,
+    private readonly date: Moment,
     private readonly id: number,
     private readonly userId: number,
     private readonly userName: string,

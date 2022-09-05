@@ -17,10 +17,13 @@ export class SocketClient {
      *   인증 토큰 추가
      */
     this.socket = io(`${process.env.NEXT_PUBLIC_BASE_URL}/realchat`, {
-      transports: ['websocket'],
+      transports: ['websocket', 'polling'],
       upgrade: false,
       forceNew: true,
     });
+    this.socket.on('disconnect', res =>
+      console.warn('Socket 연결이 끊겼습니다 :::', res),
+    );
   }
 
   disconnect() {

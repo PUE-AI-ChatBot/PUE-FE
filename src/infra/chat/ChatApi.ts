@@ -1,9 +1,10 @@
 import { Chat } from '@domain/chat/Chat';
+import moment from 'moment';
 
 /**
  * @property {string} response 응답 메세지
  * @property {string} day YYYYMMDD
- * @property {number} time 시분 (@todo 현재는 타임스탬프)
+ * @property {string} time HHMMSS
  */
 export interface ChatApiProperty {
   response: string;
@@ -21,7 +22,7 @@ export class ChatApi {
     return Chat.fromProperties({
       message: data.response,
       direction: 'receive',
-      date: data.day,
+      date: moment(data.day + 'T' + data.time),
       id: 0,
       userId: 0,
       userName: 'PUE',

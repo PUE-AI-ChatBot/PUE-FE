@@ -1,4 +1,5 @@
 import { Chat } from '@domain/chat/Chat';
+import moment, { Moment } from 'moment';
 
 /**
  * @todo
@@ -11,7 +12,7 @@ interface User {
 
 export interface Message {
   text: string;
-  writeAt?: Date;
+  writeAt: Moment;
   user: User;
 }
 
@@ -27,7 +28,7 @@ export class MessageAdaptor {
   fromText(text: string): Message {
     return {
       text,
-      writeAt: new Date(),
+      writeAt: moment(),
       user: {
         name: 'MOCK',
         photo: 'MOCK',
@@ -39,7 +40,7 @@ export class MessageAdaptor {
     const { message, direction, date, id, userId, userName } = chat.properties;
     return {
       text: message,
-      writeAt: new Date(date),
+      writeAt: date,
       user: {
         name: userName,
         photo: 'MOCK',
@@ -52,7 +53,7 @@ export class MessageAdaptor {
       id: 0,
       userId: 0,
       userName: message.user.name,
-      date: 'MOCK',
+      date: message.writeAt,
       message: message.text,
       direction: 'send',
     });
