@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import ChatContainer from '../../components/chat';
+import ChatContainer from '@components/chat';
 import { Container } from '@mui/material';
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 export interface IChat {
   isUser: boolean;
@@ -20,7 +20,7 @@ export interface IChat {
  */
 
 const Chat: NextPage = () => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.body.style.backgroundColor = 'mintcream';
     return () => {
       document.body.style.backgroundColor = 'white';

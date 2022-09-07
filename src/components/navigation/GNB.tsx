@@ -27,8 +27,13 @@ const Gnb = () => {
   const [screenName, setScreenName] = useContext(NavigationContext);
   return (
     <ElevationScroll>
-      <AppBar position={'sticky'} sx={{ height: '7vh' }}>
-        <Toolbar>
+      <AppBar
+        position={'sticky'}
+        sx={{
+          height: '4.5rem',
+        }}
+      >
+        <Toolbar sx={{ width: 1, margin: 'auto' }}>
           <Box width={1}>
             {screenName !== SCREEN_NAME.home && (
               <Button
