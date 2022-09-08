@@ -10,19 +10,18 @@
  */
 
 import React from 'react';
-import { Container } from '@mui/material';
-import Info from '@components/profile/Info';
+import Info from '@components/profile/info';
 import History from '@components/profile/History';
 import Setting from '@components/profile/Setting';
 
 type IProfile = {};
 const Profile = ({}: IProfile) => {
   return (
-    <Container>
+    <>
       <Info />
       <History />
       <Setting />
-    </Container>
+    </>
   );
 };
 

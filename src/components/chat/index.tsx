@@ -43,8 +43,9 @@ const ChatContainer = () => {
     <Box
       display={'flex'}
       flexDirection={'column'}
-      px={4}
+      px={2}
       pb={4}
+      width={1}
       height={'100%'}
       justifyContent={'space-between'}
     >
