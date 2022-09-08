@@ -21,8 +21,7 @@ const wrapStyle = {
   bottom: 20,
 };
 
-type IQuickButton = {};
-const QuickButton = ({}: IQuickButton) => {
+const QuickButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen(prev => !prev);
   const [screenName, setScreenName] = useContext(NavigationContext);

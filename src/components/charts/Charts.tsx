@@ -62,6 +62,5 @@ export const Charts = () => {
       show: false,
     },
   };
-  console.log(emotions.map(x => x.emotion));
   return <ApexChart options={options} series={setting.series} type="bar" />;
 };

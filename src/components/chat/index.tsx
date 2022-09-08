@@ -1,37 +1,30 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { chatService, MessageRes } from '../../application/chat/ChatService';
+import { chatService } from '@application/chat/ChatService';
 import { MessageLeft, MessageRight } from './Message';
-import ChatInput from '../input/ChatInput';
+import ChatInput from '@components/input/ChatInput';
 import { Box } from '@mui/material';
+import messageAdaptor, { Message } from '@application/chat/Adaptor';
 
-type IChat = {};
-const ChatContainer = ({}: IChat) => {
-  const [messages, setMessages] = useState<MessageRes[]>([]);
+const ChatContainer = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const addMessage = (m: MessageRes) => setMessages(prev => prev.concat(m));
+  const addMessage = (m: Message) => {
+    setMessages(prev => prev.concat(m));
+  };
 
-  const handleSendMessage = useCallback((message: string) => {
-    /**
-     * @todo
-     *   create Message Domain
-     */
-    const param: MessageRes = {
-      text: message,
-      user: { name: 'sohee', photo: '' },
-    };
-    addMessage(param);
+  const handleSendMessage = useCallback(async (m: string) => {
+    const message = messageAdaptor.fromText(m);
 
-    /**
-     * @todo
-     *   send Message Domain to ChatService
-     */
-    chatService.sendMessage();
+    chatService.sendChat(message);
+
+    addMessage(message);
   }, []);
 
   useEffect(() => {
     chatService.addListener(addMessage);
-    setMessages(chatService.getMessageLog());
+    (async () => setMessages(await chatService.getChatLog()))();
+
     return () => chatService.clear();
   }, []);
 

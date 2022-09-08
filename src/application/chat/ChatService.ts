@@ -1,60 +1,46 @@
-/**
- * User (domain)
- *
- * MessageRes (domain)
- *   - message, writeAt, user:User, (추가 가능)
- *
- * ChatService (application)
- *   - property : ChatRepository
- *   - 가공 로직
- *
- * ChatResource (infra)
- *   - property : SocketClient, HttpClient
- */
-interface User {
-  name: string;
-  photo: string;
-}
-
-export interface MessageRes {
-  text: string;
-  writeAt?: Date;
-  user: User;
-}
-
-const MOCK_MESSAGE: MessageRes = {
-  text: 'hello this is mock',
-  user: {
-    name: 'PUE',
-    photo: 'mock photo url',
-  },
-};
-const MOCK_SEND_MESSAGE: MessageRes = {
-  text: 'hello?',
-  user: {
-    name: 'YOU',
-    photo: 'mock photo url',
-  },
-};
-
-interface ChatRepository {
-  sendMessage(m: string): Promise<void>;
-}
+import { ChatRepository } from '@domain/chat/ChatRepository';
+import chatResource from '@infra/chat/ChatResource';
+import { MOCK_MESSAGE, MOCK_SEND_MESSAGE } from '@utils/mock';
+import adaptor, { Message, MessageAdaptor } from './Adaptor';
 
 class ChatService {
-  addListener(cb: Function) {}
+  constructor(
+    private chatRepository: ChatRepository,
+    private messageAdaptor: MessageAdaptor,
+    private userRepository: Record<string, unknown> = {},
+  ) {}
 
-  clear() {}
+  /**
+   * @todo
+   *   user domain, repository, resource 생성
+   *   import absolute path 설정
+   */
+  addListener(cb: (message: Message) => any) {
+    this.chatRepository.connect();
+    this.chatRepository.receiveChat(chat =>
+      cb(this.messageAdaptor.toMessage(chat)),
+    );
+  }
 
-  sendMessage() {}
+  clear() {
+    this.chatRepository.disConnect();
+  }
 
-  getMessageLog() {
+  sendChat(message: Message) {
+    this.chatRepository.sendChat(this.messageAdaptor.toChat(message));
+  }
+
+  async getChatLog() {
     const ret = Array(4)
       .fill(null)
-      .map(() => MOCK_MESSAGE);
-    return ret.concat(MOCK_SEND_MESSAGE, MOCK_SEND_MESSAGE);
+      .map(() => MOCK_MESSAGE)
+      .concat(MOCK_SEND_MESSAGE);
+
+    // const logs = await this.chatRepository.getChatLog(0);
+    // const temp = logs.map(chat => this.messageAdaptor.toMessage(chat));
+    return ret;
   }
 }
 
 // singleton instance
-export const chatService = new ChatService();
+export const chatService = new ChatService(chatResource, adaptor);

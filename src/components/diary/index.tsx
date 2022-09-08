@@ -12,6 +12,15 @@ const Calendar = dynamic(() => import('react-calendar'), { ssr: false });
  * 2. 서버로 부터 해당 일에 대한 감정, 채팅 내역을 불러 오게
  */
 
+//
+const StyleCalendar = styled(Calendar)`
+  display: flex;
+  border-radius: 10px;
+  width: 480px;
+  height: 960px;
+  border: 1px solid black;
+`;
+
 const Diary = () => {
   const [value, setDate] = useState(new Date());
   const [emotions, setEmotions] = useState<DayEmotion[]>([]);

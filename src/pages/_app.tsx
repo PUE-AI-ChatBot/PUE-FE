@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import '../../styles/globals.css';
 import '../../styles/calendar.css';
 import Navigation from '../application/navigation';
+import Navigation from '@components/navigation';
 import { CssBaseline } from '@mui/material';
 
 function App({ Component, pageProps }: AppProps) {
