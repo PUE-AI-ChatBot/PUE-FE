@@ -1,7 +1,5 @@
 import type { NextPage } from 'next';
 import ChatContainer from '@components/chat';
-import { Container } from '@mui/material';
-import { useEffect } from 'react';
 
 export interface IChat {
   isUser: boolean;
@@ -20,18 +18,7 @@ export interface IChat {
  */
 
 const Chat: NextPage = () => {
-  useEffect(() => {
-    document.body.style.backgroundColor = 'mintcream';
-    return () => {
-      document.body.style.backgroundColor = 'white';
-    };
-  }, []);
-
-  return (
-    <Container sx={{ height: '93vh' }} disableGutters>
-      <ChatContainer />
-    </Container>
-  );
+  return <ChatContainer />;
 };
 
 export default Chat;

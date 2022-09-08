@@ -31,6 +31,7 @@ const Gnb = () => {
         position={'sticky'}
         sx={{
           height: '4.5rem',
+          bgcolor: 'primary.main',
         }}
       >
         <Toolbar sx={{ width: 1, margin: 'auto' }}>

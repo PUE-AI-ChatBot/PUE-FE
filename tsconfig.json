@@ -21,7 +21,7 @@
       "@domain/*": ["domain/*"],
       "@infra/*": ["infra/*"],
       "@page/*": ["page/*"],
-      "@utils/*": ["utils/*"],
+      "@helper/*": ["helper/*"],
     }
   },
   "include": [
