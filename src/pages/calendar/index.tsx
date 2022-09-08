@@ -1,14 +1,15 @@
 import type { NextPage } from 'next';
 import { Container } from '@mui/material';
-import styled from 'styled-components';
 import CharacterContainer from '../../components/character';
 import Diary from '../../components/diary';
-const Chart = styled.div``;
+import { Charts } from '../../components/charts/Charts';
+
 const CalendarPage: NextPage = () => {
   return (
-    <Container sx={{ mt: 2 }}>
+    <Container sx={{ mt: 2, height: 900 }}>
       <CharacterContainer />
       <Diary />
+      <Charts />
     </Container>
   );
 };

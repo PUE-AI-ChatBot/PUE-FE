@@ -2,7 +2,7 @@ import { MessageRes } from '../chat/ChatService';
 
 export interface DayEmotion {
   chatDay: string;
-  emotion: '불안' | '기쁨';
+  emotion: '불안' | '기쁨' | '분노' | '슬픔';
 }
 
 export interface DayLog {
@@ -35,6 +35,25 @@ const MOCK_EMOTION_FEAR2: DayEmotion = {
     .substring(0, 10),
   emotion: '불안',
 };
+const MOCK_EMOTION_FEAR3: DayEmotion = {
+  chatDay: new Date(new Date().setDate(new Date().getDate() + 13))
+    .toISOString()
+    .substring(0, 10),
+  emotion: '불안',
+};
+const MOCK_EMOTION_ANGRY: DayEmotion = {
+  chatDay: new Date(new Date().setDate(new Date().getDate() + 6))
+    .toISOString()
+    .substring(0, 10),
+  emotion: '분노',
+};
+
+const MOCK_EMOTION_SAD: DayEmotion = {
+  chatDay: new Date(new Date().setDate(new Date().getDate() + 4))
+    .toISOString()
+    .substring(0, 10),
+  emotion: '슬픔',
+};
 function setDayEmotion({ chatDay, emotion }: DayEmotion) {
   return null;
 }
@@ -44,5 +63,8 @@ export function getDayEmotion() {
     MOCK_EMOTION_FEAR,
     MOCK_EMOTION_DELIGHT2,
     MOCK_EMOTION_FEAR2,
+    MOCK_EMOTION_SAD,
+    MOCK_EMOTION_ANGRY,
+    MOCK_EMOTION_FEAR3,
   ];
 }
