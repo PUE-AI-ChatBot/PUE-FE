@@ -66,7 +66,7 @@ const QuickButton = () => {
               <MessageOutlined />
             </Fab>
           </Link>
-          <Link href={'/calender'}>
+          <Link href={'/calendar'}>
             <Fab
               size={'medium'}
               color={'secondary'}
