@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { Backdrop, Box, Fab } from '@mui/material';
+import { Backdrop, Box, Fab, useTheme } from '@mui/material';
 import {
   Add,
   HomeOutlined,
@@ -22,6 +22,7 @@ const wrapStyle = {
 };
 
 const QuickButton = () => {
+  const { palette } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen(prev => !prev);
   const [screenName, setScreenName] = useContext(NavigationContext);
@@ -50,29 +51,28 @@ const QuickButton = () => {
           <Link href={'/'}>
             <Fab
               size={'medium'}
-              color={'secondary'}
+              sx={{ bgcolor: palette.primary.light }}
               onClick={() => handleQB(SCREEN_NAME.home)}
             >
-              <HomeOutlined />
+              <HomeOutlined sx={{ color: '#FFF' }} />
             </Fab>
           </Link>
           <Link href={'/chat'}>
             <Fab
               size={'medium'}
-              color={'secondary'}
-              sx={{ top: -20 }}
+              sx={{ bgcolor: palette.primary.light, top: -20 }}
               onClick={() => handleQB(SCREEN_NAME.chat)}
             >
-              <MessageOutlined />
+              <MessageOutlined sx={{ color: '#FFF' }} />
             </Fab>
           </Link>
           <Link href={'/calendar'}>
             <Fab
               size={'medium'}
-              color={'secondary'}
+              sx={{ bgcolor: palette.primary.light }}
               onClick={() => handleQB(SCREEN_NAME.calendar)}
             >
-              <TodayOutlined />
+              <TodayOutlined sx={{ color: '#FFF' }} />
             </Fab>
           </Link>
         </Box>

@@ -15,12 +15,14 @@ const Meta = ({ nickName, userName, register }: IMeta) => {
         top={'-11rem'}
         ml={'8rem'}
         height={'26rem'}
+        zIndex={0}
       />
       <Box
         p={0.7}
         bgcolor={'background.paper'}
         width={'fit-content'}
         borderRadius={'50%'}
+        zIndex={1}
       >
         <ProfileAvatar length={'12rem'} />
       </Box>

@@ -22,6 +22,7 @@ export default function (mode: PaletteMode) {
     palette: {
       mode,
       primary: {
+        light: '#ABB3E2',
         main: '#7986cb',
       },
       secondary: {
