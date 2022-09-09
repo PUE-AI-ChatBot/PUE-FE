@@ -1,0 +1,186 @@
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+.react-calendar--doubleView {
+  width: 700px;
+}
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /*padding: 3px 1.5px 2px 1.5px;*/
+}
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+/* navigation */
+.react-calendar__navigation {
+  display: flex;
+  height: 42px;
+  margin-bottom: -1.5em;
+}
+
+/* navigation title box */
+.react-calendar__navigation button:disabled {
+  background-color: white;
+}
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+/* navigation label title */
+.react-calendar__navigation__label__labelText {
+  color: black;
+  font-size: 20px;
+}
+/* navigation 2 arrow */
+.react-calendar__navigation__prev2-button {
+  display: none;
+}
+.react-calendar__navigation__next2-button {
+  display: none;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: none;
+}
+
+/* calendar container*/
+.react-calendar__viewContainer {
+  max-width: 100%;
+}
+/* month container */
+.react-calendar__month-view {
+  border: 1px solid #76baff;
+  border-radius: 5%;
+  margin-top: 30px;
+}
+/* weekdays */
+.react-calendar__month-view__weekdays {
+  max-width: 100%;
+  justify-content: space-between;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+  border-bottom: 1px solid #76baff;
+  margin-bottom: 10px;
+}
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+/* days container */
+.react-calendar__month-view__days {
+  display: flex;
+}
+/* calendar days */
+.react-calendar__tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 100%;
+  padding: 6.66667px 7px 0px;
+  font-size: 1em;
+  height: 64px;
+  background: none;
+  text-align: start;
+  /* border: 1px solid rgba(133, 133, 133, 0.25); */
+}
+
+.react-calendar__tile abbr {
+  align-self: flex-start;
+}
+/* calendar date disalbed*/
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  box-shadow: 0 0 0 1px rgb(133, 133, 133) inset;
+  border-radius: 10%;
+}
+
+/* calendar date today */
+.react-calendar__tile--now {
+  background: #ffff76;
+  border-radius: 10%;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+
+/* ~ */
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+/* calendar date active*/
+.react-calendar__tile--active {
+  background: #006edc;
+  border-radius: 10%;
+  color: white;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
+/*  dot */
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #f87171;
+  border-radius: 50%;
+  display: flex;
+  margin-left: 1px;
+}

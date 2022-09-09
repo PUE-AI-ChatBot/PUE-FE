@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import '@helper/styles/globals.css';
+import '@helper/styles/calendar.css';
 import Navigation from '@components/navigation';
 import { CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
 import createTheme, { ToggleTheme } from '@helper/styles/defaultStyle';
