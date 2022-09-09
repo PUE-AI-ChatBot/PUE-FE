@@ -11,17 +11,27 @@
 
 import React from 'react';
 import Info from '@components/profile/info';
-import History from '@components/profile/History';
-import Setting from '@components/profile/Setting';
+import History from '@components/profile/history';
+import Setting from '@components/profile/setting';
+import Footer from '@components/profile/footer';
+import { Stack } from '@mui/material';
 
 type IProfile = {};
 const Profile = ({}: IProfile) => {
   return (
-    <>
+    <Stack
+      width={'fit-content'}
+      maxWidth={'60rem'}
+      spacing={'4rem'}
+      overflow={'auto'}
+      px={'15rem'}
+      pb={'7rem'}
+    >
       <Info />
       <History />
       <Setting />
-    </>
+      <Footer />
+    </Stack>
   );
 };
 

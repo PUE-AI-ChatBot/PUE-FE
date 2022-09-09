@@ -8,23 +8,13 @@ const Info = () => {
    *   User domain 상태 관리
    */
   return (
-    <div>
-      <Box
-        position={'absolute'}
-        width={'26rem'}
-        bgcolor={'primary.main'}
-        borderRadius={'13rem'}
-        top={'-5rem'}
-        ml={'8rem'}
-        height={'26rem'}
-        zIndex={0}
-      />
+    <Box mt={'4rem'} mb={'2rem'} width={'27rem'}>
       <Meta
-        nickName={'테스트 닉네임'}
+        nickName={'PUE__'}
         userName={'Kim So Hee'}
         register={'2022. 09. 09'}
       />
-    </div>
+    </Box>
   );
 };
 

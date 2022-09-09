@@ -15,6 +15,7 @@
  * .components
  */
 import { createTheme, PaletteMode } from '@mui/material';
+import { createContext } from 'react';
 
 export default function (mode: PaletteMode) {
   return createTheme({
@@ -42,6 +43,11 @@ export default function (mode: PaletteMode) {
     },
   });
 }
+
+type IToggleTheme = { toggle: () => void; mode: PaletteMode };
+export const ToggleTheme = createContext<IToggleTheme>(
+  null as unknown as IToggleTheme,
+);
 
 /**
  * 반응형

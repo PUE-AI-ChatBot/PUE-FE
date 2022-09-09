@@ -2,13 +2,8 @@ import type { AppProps } from 'next/app';
 import '@helper/styles/globals.css';
 import Navigation from '@components/navigation';
 import { CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
-import createTheme from '@helper/styles/defaultStyle';
-import React, { createContext, useMemo, useState } from 'react';
-
-type IToggleTheme = { toggle: () => void };
-const ToggleTheme = createContext<IToggleTheme>(
-  null as unknown as IToggleTheme,
-);
+import createTheme, { ToggleTheme } from '@helper/styles/defaultStyle';
+import React, { useMemo, useState } from 'react';
 
 function App({ Component, pageProps }: AppProps) {
   const [mode, setMode] = useState<PaletteMode>('light');
@@ -18,6 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       /* 리렌더링 확인 필요 */
       value={{
         toggle: () => setMode(mode == 'light' ? 'dark' : 'light'),
+        mode,
       }}
     >
       <ThemeProvider theme={theme}>
