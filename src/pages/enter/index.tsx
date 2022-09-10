@@ -1,10 +1,12 @@
 import type { NextPage } from 'next';
-import { Container } from '@mui/system';
-import { Box, Grid } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import Login from '@components/login/Login';
 import TitleText from '@components/login/TitleText';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const EnterPage: NextPage = () => {
+  const { data: session, status } = useSession();
   return (
     <Container
       sx={{
@@ -16,12 +18,17 @@ const EnterPage: NextPage = () => {
         gap: 2,
       }}
     >
-      <TitleText />
-
-      <Box display={'grid'} gap={2} mt={4}>
-        <Login loginSite="google" />
-        <Login loginSite="kakao" />
-      </Box>
+      {status === 'loading' ? (
+        <div> loading... </div>
+      ) : (
+        <>
+          <TitleText />
+          <Box display={'grid'} gap={2} mt={4}>
+            <Login loginSite="google" />
+            <Login loginSite="kakao" />
+          </Box>
+        </>
+      )}
     </Container>
   );
 };
