@@ -3,7 +3,7 @@ import chatResource from '@infra/chat/ChatResource';
 import { MOCK_MESSAGE, MOCK_SEND_MESSAGE } from '@helper/mock';
 import adaptor, { Message, MessageAdaptor } from './Adaptor';
 
-class ChatService {
+export class ChatService {
   constructor(
     private chatRepository: ChatRepository,
     private messageAdaptor: MessageAdaptor,

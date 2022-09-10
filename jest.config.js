@@ -16,7 +16,7 @@ const customJestConfig = {
     '^@domain/(.*)$': '<rootDir>/domain/$1',
     '^@infra/(.*)$': '<rootDir>/infra/$1',
     '^@page/(.*)$': '<rootDir>/page/$1',
-    '^@helper/(.*)$': '<rootDir>helpers/$1',
+    '^@helper/(.*)$': '<rootDir>helper/$1',
   },
 
   testEnvironment: 'jest-environment-jsdom',

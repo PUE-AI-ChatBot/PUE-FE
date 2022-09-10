@@ -9,7 +9,7 @@ import moment from 'moment';
 export interface ChatApiProperty {
   response: string;
   day: string;
-  time: number;
+  time: string;
 }
 
 /**
