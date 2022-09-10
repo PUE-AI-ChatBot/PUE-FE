@@ -5,6 +5,7 @@ import Navigation from '@components/navigation';
 import { CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
 import createTheme, { ToggleTheme } from '@helper/styles/defaultStyle';
 import React, { useMemo, useState } from 'react';
+import { SessionProvider } from 'next-auth/react';
 
 function App({ Component, pageProps }: AppProps) {
   const [mode, setMode] = useState<PaletteMode>('light');
@@ -18,10 +19,12 @@ function App({ Component, pageProps }: AppProps) {
       }}
     >
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Navigation>
-          <Component {...pageProps} />
-        </Navigation>
+        <SessionProvider session={pageProps.session}>
+          <CssBaseline />
+          <Navigation>
+            <Component {...pageProps} />
+          </Navigation>
+        </SessionProvider>
       </ThemeProvider>
     </ToggleTheme.Provider>
   );
