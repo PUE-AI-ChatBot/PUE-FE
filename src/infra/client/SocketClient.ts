@@ -1,7 +1,7 @@
 import io, { Socket } from 'socket.io-client';
 
 export class SocketClient {
-  constructor(private socket: Socket | null = null) {}
+  constructor(private socket: Socket | null = null, public connected = false) {}
 
   emitData(event: string, data: any) {
     this.socket?.emit(event, data);
@@ -21,6 +21,7 @@ export class SocketClient {
       upgrade: false,
       forceNew: true,
     });
+    this.connected = true;
     this.socket.on('disconnect', res =>
       console.warn('Socket 연결이 끊겼습니다 :::', res),
     );
@@ -28,6 +29,7 @@ export class SocketClient {
 
   disconnect() {
     this.socket?.disconnect();
+    this.connected = false;
     this.socket = null;
   }
 }
