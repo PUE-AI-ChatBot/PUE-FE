@@ -1,13 +1,6 @@
-import { MessageRes } from '../chat/ChatService';
-
 export interface DayEmotion {
   chatDay: string;
   emotion: '불안' | '기쁨' | '분노' | '슬픔';
-}
-
-export interface DayLog {
-  chatLog: MessageRes;
-  emotionLog: DayEmotion;
 }
 
 const MOCK_EMOTION_FEAR: DayEmotion = {

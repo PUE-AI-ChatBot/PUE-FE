@@ -6,7 +6,15 @@ import { Charts } from '../../components/charts/Charts';
 
 const CalendarPage: NextPage = () => {
   return (
-    <Container sx={{ mt: 2, height: 900 }}>
+    <Container
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        mt: 2,
+        height: '100vh',
+      }}
+    >
       <CharacterContainer />
       <Diary />
       <Charts />
