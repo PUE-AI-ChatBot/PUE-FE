@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { Container } from '@mui/system';
 import { Box } from '@mui/material';
-
 import Login from '@components/login/Login';
 import TitleText from '@components/login/TitleText';
 
