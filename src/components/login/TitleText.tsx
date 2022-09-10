@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 const TitleText = () => {
   return (
-    <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt={8}>
       <Typography variant={'h3'} sx={{ color: 'primary.main' }}>
         PUE
       </Typography>
