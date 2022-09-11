@@ -22,7 +22,7 @@ export const MOCK_SEND_MESSAGE: Message = {
 export const MOCK_STATISTICS: StatisticsResult = {
   option: 'donut',
   statistics: {
-    불만: 2,
+    불안: 2,
     중립: 0,
     당혹: 5,
     기쁨: 0,

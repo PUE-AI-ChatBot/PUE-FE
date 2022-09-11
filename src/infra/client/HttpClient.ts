@@ -7,7 +7,7 @@ export class HttpClient {
   private base = process.env.NEXT_PUBLIC_BASE_URL;
 
   async get<ResponseType>(url: string): Promise<ResponseType> {
-    const response = await fetch(`${this.base}/${url}`);
+    const response = await fetch(`/${url}`);
     const ret = await response.json();
     return ret;
   }
