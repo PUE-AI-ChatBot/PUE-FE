@@ -9,14 +9,15 @@ const createJestConfig = nextJest({
 /** @type {import('jest').Config} */
 const customJestConfig = {
   moduleDirectories: ['node_modules'],
-  rootDir: './src',
+  rootDir: '.',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
-    '^@application/(.*)$': '<rootDir>/application/$1',
-    '^@component/(.*)$': '<rootDir>/component/$1',
-    '^@domain/(.*)$': '<rootDir>/domain/$1',
-    '^@infra/(.*)$': '<rootDir>/infra/$1',
-    '^@page/(.*)$': '<rootDir>/page/$1',
-    '^@helper/(.*)$': '<rootDir>helper/$1',
+    '^@application/(.*)$': '<rootDir>/src/application/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@domain/(.*)$': '<rootDir>/src/domain/$1',
+    '^@infra/(.*)$': '<rootDir>/src/infra/$1',
+    '^@pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^@helper/(.*)$': '<rootDir>/src/helper/$1',
   },
 
   testEnvironment: 'jest-environment-jsdom',

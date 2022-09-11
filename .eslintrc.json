@@ -15,12 +15,14 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended"
   ],
   "plugins": [
     "react",
     "react-hooks",
-    "prettier"
+    "prettier",
+    "testing-library"
   ],
   "rules": {
     "react/no-unescaped-entities": "off",
@@ -32,5 +34,18 @@
       "typescript": {}
     }
   },
-  "ignorePatterns": ["*.js", "*.json"]
+  "ignorePatterns": [
+    "*.js",
+    "*.json"
+  ],
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
 }

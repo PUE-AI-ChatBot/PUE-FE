@@ -50,7 +50,7 @@ const ChatContainer = () => {
       justifyContent={'space-between'}
     >
       <Box ref={scrollRef} overflow={'auto'} px={4} pb={8}>
-        {messages.map((message, idx) =>
+        {messages?.map((message, idx) =>
           message.user.name === 'PUE' ? (
             <MessageLeft key={idx} {...message} />
           ) : (
