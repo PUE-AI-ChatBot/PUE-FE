@@ -5,7 +5,7 @@ import { Chat } from '@domain/chat/Chat';
 const mockText = 'MOCK_TEXT';
 const mockChat = {
   message: mockText,
-  direction: 'receive' as const,
+  direction: 'USER' as const,
   date: moment(),
   id: 0,
   userId: 0,

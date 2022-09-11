@@ -51,7 +51,7 @@ const ChatContainer = () => {
     >
       <Box ref={scrollRef} overflow={'auto'} px={4} pb={8}>
         {messages?.map((message, idx) =>
-          message.user.name === 'PUE' ? (
+          message.direction === 'BOT' ? (
             <MessageLeft key={idx} {...message} />
           ) : (
             <MessageRight key={idx} {...message} />

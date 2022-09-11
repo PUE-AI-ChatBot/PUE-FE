@@ -3,6 +3,7 @@ import { Chat } from '@domain/chat/Chat';
 import { ChatApi, ChatApiProperty } from './ChatApi';
 import httpClient, { HttpClient } from '@infra/client/HttpClient';
 import socketClient, { SocketClient } from '@infra/client/SocketClient';
+import moment from 'moment';
 
 export enum ChatEvent {
   send = 'SEND_MESSAGE',
@@ -26,8 +27,11 @@ export class ChatResource implements ChatRepository {
    *   chat log 적용
    */
   async getChatLog(userId: number): Promise<Chat[]> {
-    const chatLogApi = await this.http.get<ChatApiProperty[]>(`MOCK/${userId}`);
-    const chatLog = chatLogApi.map(api => ChatApi.toDomain(api));
+    const { chats } = await this.http.get<{
+      chats: ChatApiProperty[];
+    }>(`/chats/day/${moment().format('YYYYMMDD')}`);
+
+    const chatLog = chats.map(api => ChatApi.toDomain(api)).reverse();
     return chatLog;
   }
 

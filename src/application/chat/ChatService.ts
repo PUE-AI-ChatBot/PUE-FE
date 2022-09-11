@@ -1,6 +1,5 @@
 import { ChatRepository } from '@domain/chat/ChatRepository';
 import chatResource from '@infra/chat/ChatResource';
-import { MOCK_MESSAGE, MOCK_SEND_MESSAGE } from '@helper/mock';
 import adaptor, { Message, MessageAdaptor } from './Adaptor';
 
 export class ChatService {
@@ -31,13 +30,13 @@ export class ChatService {
   }
 
   async getChatLog() {
-    const ret = Array(4)
-      .fill(null)
-      .map(() => MOCK_MESSAGE)
-      .concat(MOCK_SEND_MESSAGE);
+    // const ret = Array(4)
+    //   .fill(null)
+    //   .map(() => MOCK_MESSAGE)
+    //   .concat(MOCK_SEND_MESSAGE);
 
-    // const logs = await this.chatRepository.getChatLog(0);
-    // const temp = logs.map(chat => this.messageAdaptor.toMessage(chat));
+    const logs = await this.chatRepository.getChatLog(0);
+    const ret = logs.map(chat => this.messageAdaptor.toMessage(chat));
     return ret;
   }
 }

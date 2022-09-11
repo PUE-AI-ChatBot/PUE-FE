@@ -20,21 +20,24 @@ describe('class ChatResource', () => {
     jest.clearAllMocks();
   });
   it('getChatLog()', async () => {
-    const MOCK_RES = [
-      {
-        response: 'res',
-        day: '20220911',
-        time: '025033',
-      },
-    ];
+    const MOCK_RES = {
+      chats: [
+        {
+          response: 'res',
+          day: '20220911',
+          time: '025033',
+          utterance: 'u',
+        },
+      ],
+    };
     mockedHttpClient.get.mockImplementation(
-      async (): Promise<ChatApiProperty[]> => MOCK_RES,
+      async (): Promise<{ chats: ChatApiProperty[] }> => MOCK_RES,
     );
 
     const logs = await chatResource.getChatLog(0);
 
     expect(logs[0]).toBeInstanceOf(Chat);
-    expect(spyToDomain).toBeCalledWith(MOCK_RES[0]);
+    expect(spyToDomain).toBeCalledWith(MOCK_RES.chats[0]);
   });
 
   it('receiveChat()', () => {
@@ -51,7 +54,7 @@ describe('class ChatResource', () => {
   it('sendChat()', () => {
     const MOCK_CHAT = Chat.fromProperties({
       message: 'text',
-      direction: 'send',
+      direction: 'USER',
       date: moment(),
       id: 0,
       userId: 0,
