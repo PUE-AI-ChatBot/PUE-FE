@@ -23,7 +23,7 @@ export const MOCK_SEND_MESSAGE: Message = {
 export const MOCK_STATISTICS: StatisticsResult = {
   total: 3,
   statistics: {
-    불안: 2,
+    불만: 2,
     중립: 0,
     당혹: 5,
     기쁨: 0,

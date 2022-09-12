@@ -38,7 +38,6 @@ export const donutProps = (statData: any) => {
 };
 export const barProps = (date: string) => {
   const statData = fetchStatMonth(date);
-  console.log(fetchStatMonth);
   const option: ApexOptions = {
     chart: {
       type: 'bar',
