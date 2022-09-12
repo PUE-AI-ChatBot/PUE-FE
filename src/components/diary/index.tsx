@@ -1,5 +1,5 @@
 import { Charts } from '@components/charts/Charts';
-import { DayEmotion } from '@components/diary/emotion/DayResults';
+import { DayEmotion } from '@application/chat/diary/DayResults';
 import { getMonthEmotion } from '@helper/mock';
 import { Box, Typography } from '@mui/material';
 import moment from 'moment';
