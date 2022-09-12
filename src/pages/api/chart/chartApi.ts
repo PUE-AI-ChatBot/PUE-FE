@@ -1,19 +1,5 @@
-import HttpClient from '@infra/client/HttpClient';
 import axios from 'axios';
 import useSWR from 'swr';
-
-interface StatisticsDay {
-  mode: '1day' | 'allday' | 'Nday' | 'setDate';
-  oneDay?: string;
-  Nday?: {
-    oneDay: string;
-    N: number;
-  };
-  setDate?: {
-    start: string;
-    end: string;
-  };
-}
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 

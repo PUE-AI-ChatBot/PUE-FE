@@ -3,9 +3,7 @@ import { ApexOptions } from 'apexcharts';
 import { fetchStatMonth } from 'pages/api/chart/chartApi';
 import { seriesData } from './Series';
 
-export const donutProps = (date: string) => {
-  const statData = fetchStatMonth(date);
-  console.log(statData);
+export const donutProps = (statData: any) => {
   const option: ApexOptions = {
     chart: {
       type: 'donut',

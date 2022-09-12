@@ -15,7 +15,11 @@ export interface StatisticsResult {
   };
 }
 
-export const seriesData = ({ total, statistics }: StatisticsResult) => {
+export const seriesData = ({
+  total,
+  statistics,
+  message,
+}: StatisticsResult) => {
   const optionColor = {
     불안: '#dc143c',
     중립: '#ffffe0',

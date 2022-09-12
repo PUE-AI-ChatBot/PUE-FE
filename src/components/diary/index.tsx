@@ -3,7 +3,7 @@ import {
   DayEmotion,
   getDayEmotion,
 } from '@components/diary/emotion/DayResults';
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
 import moment from 'moment';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
@@ -35,9 +35,9 @@ const Diary = () => {
         tileContent={({ date }) => {
           return (
             <>
-              {emotions.map(x =>
+              {emotions.map((x, idx) =>
                 x.chatDay === moment(date).format('YYYY-MM-DD') ? (
-                  <Emotion chatDay={x.chatDay} emotion={x.emotion} />
+                  <Emotion key={idx} chatDay={x.chatDay} emotion={x.emotion} />
                 ) : null,
               )}
             </>
