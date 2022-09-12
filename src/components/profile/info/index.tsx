@@ -8,7 +8,7 @@ const Info = () => {
    *   User domain 상태 관리
    */
   return (
-    <Box mt={'4rem'} mb={'2rem'} width={'27rem'}>
+    <Box mt={'3rem'} mb={'2rem'} width={'21rem'}>
       <Meta
         nickName={'PUE__'}
         userName={'Kim So Hee'}

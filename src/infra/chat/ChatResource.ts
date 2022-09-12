@@ -28,10 +28,12 @@ export class ChatResource implements ChatRepository {
    */
   async getChatLog(userId: number): Promise<Chat[]> {
     const { chats } = await this.http.get<{
-      chats: ChatApiProperty[];
+      chats?: ChatApiProperty[];
     }>(`/chats/day/${moment().format('YYYYMMDD')}`);
 
-    const chatLog = chats.map(api => ChatApi.toDomain(api)).reverse();
+    const chatLog = chats
+      ? chats.map(api => ChatApi.toDomain(api)).reverse()
+      : [];
     return chatLog;
   }
 

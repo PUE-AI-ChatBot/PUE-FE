@@ -22,7 +22,7 @@ const Profile = ({}: IProfile) => {
     <Stack
       width={'fit-content'}
       maxWidth={'60rem'}
-      spacing={'4rem'}
+      spacing={'2.5rem'}
       overflow={'auto'}
       px={'15rem'}
       pb={'7rem'}

@@ -22,6 +22,13 @@ const ChatContainer = () => {
   }, []);
 
   useEffect(() => {
+    /**
+     * @desc
+     *   react strictmode 설정 시 hook이 2번 실행되는 문제가 있습니다.
+     *   (다른 api 네트워크 요청도 2번 씩 발생)
+     *
+     *   socket client 연결 문제로 strictmode 해제하였습니다.
+     */
     chatService.addListener(addMessage);
     (async () => setMessages(await chatService.getChatLog()))();
 
@@ -43,13 +50,12 @@ const ChatContainer = () => {
     <Box
       display={'flex'}
       flexDirection={'column'}
-      px={2}
       pb={4}
       width={1}
       height={'100%'}
       justifyContent={'space-between'}
     >
-      <Box ref={scrollRef} overflow={'auto'} px={4} pb={8}>
+      <Box ref={scrollRef} overflow={'auto'} px={1} pb={8}>
         {messages?.map((message, idx) =>
           message.direction === 'BOT' ? (
             <MessageLeft key={idx} {...message} />

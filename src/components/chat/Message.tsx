@@ -14,15 +14,20 @@ export const MessageLeft = memo(({ text, writeAt }: IMessage) => {
           elevation={2}
           sx={{
             width: 'fit-content',
-            p: 1.5,
-            borderRadius: 6,
+            p: 1.2,
+            borderRadius: 5,
             borderTopLeftRadius: 0,
           }}
         >
-          <Typography>{text}</Typography>
+          <Typography fontSize={'0.95rem'}>{text}</Typography>
         </Paper>
       </Box>
-      <Typography color={'gray'} alignItems={'flex-end'} display={'flex'}>
+      <Typography
+        color={'gray'}
+        alignItems={'flex-end'}
+        display={'flex'}
+        variant={'body2'}
+      >
         {writeAt.isValid() && writeAt.format('HH:mm')}
       </Typography>
     </Box>
@@ -30,12 +35,13 @@ export const MessageLeft = memo(({ text, writeAt }: IMessage) => {
 });
 export const MessageRight = memo(({ text, writeAt }: IMessage) => {
   return (
-    <Box display={'flex'} justifyContent={'flex-end'}>
+    <Box display={'flex'} justifyContent={'flex-end'} pt={2}>
       <Typography
         color={'gray'}
         alignItems={'flex-end'}
         display={'flex'}
         mx={'0.5rem'}
+        variant={'body2'}
       >
         {writeAt?.format('HH:mm')}
       </Typography>
@@ -44,13 +50,15 @@ export const MessageRight = memo(({ text, writeAt }: IMessage) => {
           elevation={2}
           sx={{
             width: 'fit-content',
-            p: 1.5,
-            borderRadius: 6,
+            p: 1.2,
+            borderRadius: 5,
             borderTopRightRadius: 0,
             bgcolor: 'royalblue',
           }}
         >
-          <Typography color={'white'}>{text}</Typography>
+          <Typography color={'white'} fontSize={'0.95rem'}>
+            {text}
+          </Typography>
         </Paper>
       </Box>
     </Box>

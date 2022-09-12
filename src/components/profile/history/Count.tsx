@@ -26,8 +26,8 @@ const Count = ({ title, count }: ICount) => {
       onMouseOver={() => setRaised(true)}
       onMouseOut={() => setRaised(false)}
       sx={{
-        width: '12rem',
-        p: '1.5rem',
+        width: '10rem',
+        p: '1.2rem',
         borderRadius: '1rem',
       }}
     >

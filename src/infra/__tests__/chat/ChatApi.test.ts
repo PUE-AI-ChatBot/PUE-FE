@@ -11,7 +11,7 @@ describe('class ChatApi', () => {
 
   const MOCK_CHAT = Chat.fromProperties({
     message: 'text',
-    direction: 'send',
+    direction: 'USER',
     date: moment(),
     id: 0,
     userId: 0,
