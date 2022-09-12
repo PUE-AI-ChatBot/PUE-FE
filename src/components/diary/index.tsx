@@ -1,8 +1,6 @@
 import { Charts } from '@components/charts/Charts';
-import {
-  DayEmotion,
-  getDayEmotion,
-} from '@components/diary/emotion/DayResults';
+import { DayEmotion } from '@components/diary/emotion/DayResults';
+import { getMonthEmotion } from '@helper/mock';
 import { Box } from '@mui/material';
 import moment from 'moment';
 import dynamic from 'next/dynamic';
@@ -19,9 +17,8 @@ const Diary = () => {
   const [value, setDate] = useState(new Date());
   const [emotions, setEmotions] = useState<DayEmotion[]>([]);
   useEffect(() => {
-    setEmotions(getDayEmotion());
+    setEmotions(getMonthEmotion());
   }, []);
-
   return (
     <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt={4}>
       <Calendar
