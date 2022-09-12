@@ -22,6 +22,7 @@ const Diary = () => {
     setEmotions(getMonthEmotion());
   }, []);
   const { data: session, status } = useSession();
+
   return (
     <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt={4}>
       <Calendar
