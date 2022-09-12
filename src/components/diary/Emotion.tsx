@@ -1,6 +1,6 @@
+import { DayEmotion } from '@application/diary/DayResults';
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { DayEmotion } from '../../application/diary/DayResults';
 
 /**
  *

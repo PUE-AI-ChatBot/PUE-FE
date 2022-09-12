@@ -16,23 +16,35 @@ export interface StatisticsResult {
 }
 
 export const seriesData = ({ option, statistics }: StatisticsResult) => {
-  /**
-   *     series: [
-      { data: [(3 / 7) * 100, (2 / 7) * 100, (1 / 7) * 100, (1 / 7) * 100] },
-    ],
-   */
+  const optionColor = {
+    불안: '#dc143c',
+    중립: '#ffffe0',
+    당혹: '#f4a460',
+    기쁨: '#00ff00',
+    걱정: '#00bfff',
+    질투: '#800000',
+    슬픔: '#191970',
+    죄책감: '#4b0082',
+    연민: '#808080',
+  };
   const dataOption: string[] = [];
   const dataSeries: number[] = [];
-
+  const dataColor: string[] = [];
   Object.entries(statistics).map(arr =>
     arr[1] > 0 ? dataOption.push(arr[0]) : null,
   );
   Object.entries(statistics).map(arr =>
     arr[1] > 0 ? dataSeries.push(arr[1]) : null,
   );
+  dataOption.map(opt =>
+    Object.entries(optionColor).map(([key, val]) =>
+      key === opt ? dataColor.push(val) : null,
+    ),
+  );
   const data = {
     option: dataOption,
     series: dataSeries,
+    color: dataColor,
   };
 
   if (option === 'donut') {

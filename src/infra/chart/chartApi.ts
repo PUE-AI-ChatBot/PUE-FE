@@ -13,6 +13,11 @@ interface StatisticsDay {
   };
 }
 
+export function fetchStat1Day() {
+  return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/stat/day/20220910`).then(
+    response => response.json(),
+  );
+}
 export const getStaticsDay = async ({
   mode,
   oneDay,
@@ -20,7 +25,6 @@ export const getStaticsDay = async ({
   setDate,
 }: StatisticsDay) => {
   if (mode === '1day') {
-    console.log();
     return HttpClient.get(`stat/day/${oneDay}`);
   } else if (mode === 'allday') {
     return HttpClient.get(`stat/${mode}`);

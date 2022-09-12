@@ -2,17 +2,6 @@ import { MOCK_STATISTICS } from '@helper/mock';
 import { ApexOptions } from 'apexcharts';
 import { seriesData } from './Series';
 
-const optionColor = {
-  불안: '#dc143c',
-  중립: '#ffffe0',
-  당혹: '#f4a460',
-  기쁨: '#00ff00',
-  걱정: '#00bfff',
-  질투: '#800000',
-  슬픔: '#191970',
-  죄책감: '#4b0082',
-  연민: '#808080',
-};
 export const barOptions: ApexOptions = {
   chart: {
     type: 'bar',
@@ -43,6 +32,7 @@ export const barOptions: ApexOptions = {
     axisBorder: { show: false },
     categories: seriesData(MOCK_STATISTICS)?.option,
   },
+  colors: seriesData(MOCK_STATISTICS)?.color,
 
   dataLabels: {
     enabled: false,
@@ -55,12 +45,13 @@ export const barOptions: ApexOptions = {
   },
 };
 
-export const donutOption = () => {};
 export const donutOptions: ApexOptions = {
   chart: {
     type: 'donut',
   },
   labels: seriesData(MOCK_STATISTICS)?.option,
+  colors: seriesData(MOCK_STATISTICS)?.color,
+
   dataLabels: {
     enabled: false,
   },
@@ -69,6 +60,7 @@ export const donutOptions: ApexOptions = {
       expandOnClick: false,
     },
   },
+
   responsive: [
     {
       options: {

@@ -2,11 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  async rewrites() {
+  rewrites: async () => {
     return [
       {
-        source: '/stat',
-        destination: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+        source: '/:path*',
+        destination: `${process.env.NEXT_PUBLIC_BASE_URL}/:path*`,
       },
     ];
   },
