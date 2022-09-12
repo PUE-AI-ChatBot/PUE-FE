@@ -1,8 +1,7 @@
 import { donutProps } from '@components/charts/option/Options';
 import { seriesData } from '@components/charts/option/Series';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { Container } from '@mui/system';
-import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import { fetchStatMonth } from 'pages/api/chart/chartApi';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -26,7 +25,6 @@ function formatDate(date: Date, separator: string) {
  */
 export const Charts = ({ date }: IDate) => {
   const statData = fetchStatMonth(formatDate(date, ''));
-  const { data: session, status } = useSession();
   const tempData = {
     statistics: {
       불만: 2,
@@ -47,17 +45,12 @@ export const Charts = ({ date }: IDate) => {
         display={'flex'}
         justifyContent={'flex-start'}
         flexDirection={'column'}
-        mt={4}
       >
-        <Typography color={'GrayText'} variant={'subtitle2'} sx={{ mb: 2 }}>
-          최근 한달동안 {session?.user?.name}님의 감정기록
-        </Typography>
         <ApexChart
           options={donutProps(tempData)}
           series={seriesData(tempData)?.series}
           type="donut"
         />
-        <Box sx={{ height: '10vh' }} />
       </Box>
     </Container>
   );

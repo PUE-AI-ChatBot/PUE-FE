@@ -10,6 +10,7 @@ const EnterPage: NextPage = () => {
   const router = useRouter();
   if (status === 'authenticated') {
     router.replace('/');
+    return null;
   }
   return (
     <Container
