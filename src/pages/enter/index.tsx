@@ -2,11 +2,15 @@ import type { NextPage } from 'next';
 import { Container, Box } from '@mui/material';
 import Login from '@components/login/Login';
 import TitleText from '@components/login/TitleText';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 const EnterPage: NextPage = () => {
   const { data: session, status } = useSession();
+  const router = useRouter();
+  if (status === 'authenticated') {
+    router.replace('/');
+  }
   return (
     <Container
       sx={{

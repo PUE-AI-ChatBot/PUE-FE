@@ -1,16 +1,20 @@
-import { DayEmotion, getDayEmotion } from '@application/diary/DayResults';
+import { Charts } from '@components/charts/Charts';
+import {
+  DayEmotion,
+  getDayEmotion,
+} from '@components/diary/emotion/DayResults';
 import { Box, styled } from '@mui/material';
 import moment from 'moment';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import { Emotion } from './Emotion';
+import { Emotion } from './emotion/Emotion';
 const Calendar = dynamic(() => import('react-calendar'), { ssr: false });
 
 /**
  * @todos
  * 1. Calendar Css 수정 필요 (img 들어가게)
- * 2. 서버로 부터 해당 일에 대한 감정, 채팅 내역을 불러 오게
  */
+
 const Diary = () => {
   const [value, setDate] = useState(new Date());
   const [emotions, setEmotions] = useState<DayEmotion[]>([]);
@@ -40,6 +44,7 @@ const Diary = () => {
           );
         }}
       />
+      <Charts date={value} />
     </Box>
   );
 };

@@ -1,7 +1,7 @@
 export interface StatisticsResult {
   message?: string;
   total?: number;
-  option: 'bar' | 'donut';
+  option?: 'bar' | 'donut';
   statistics: {
     불안: number;
     중립: number;
@@ -15,7 +15,7 @@ export interface StatisticsResult {
   };
 }
 
-export const seriesData = ({ option, statistics }: StatisticsResult) => {
+export const seriesData = ({ total, statistics }: StatisticsResult) => {
   const optionColor = {
     불안: '#dc143c',
     중립: '#ffffe0',
@@ -47,7 +47,5 @@ export const seriesData = ({ option, statistics }: StatisticsResult) => {
     color: dataColor,
   };
 
-  if (option === 'donut') {
-    return data;
-  }
+  return data;
 };

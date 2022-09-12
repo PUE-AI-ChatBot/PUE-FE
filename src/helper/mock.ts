@@ -1,4 +1,4 @@
-import { StatisticsResult } from '@application/chart/Series';
+import { StatisticsResult } from '@components/charts/option/Series';
 import { Message } from '@application/chat/Adaptor';
 import moment from 'moment';
 
@@ -20,7 +20,7 @@ export const MOCK_SEND_MESSAGE: Message = {
 };
 
 export const MOCK_STATISTICS: StatisticsResult = {
-  option: 'donut',
+  total: 3,
   statistics: {
     불안: 2,
     중립: 0,

@@ -14,7 +14,6 @@ const CalendarPage: NextPage = () => {
       }}
     >
       <Diary />
-      <Charts />
     </Container>
   );
 };
