@@ -1,8 +1,7 @@
 import { StatisticsResult } from '@components/charts/option/Series';
 import { Message } from '@application/chat/Adaptor';
 import moment from 'moment';
-import { DayEmotion } from '@components/diary/emotion/DayResults';
-
+import { DayEmotion } from '@components/diary/emotion/DayEmotion';
 export const MOCK_MESSAGE: Message = {
   writeAt: moment(),
   text: 'hello this is mock',
@@ -23,7 +22,7 @@ export const MOCK_SEND_MESSAGE: Message = {
 export const MOCK_STATISTICS: StatisticsResult = {
   total: 3,
   statistics: {
-    불안: 2,
+    불만: 2,
     중립: 0,
     당혹: 5,
     기쁨: 0,
@@ -34,6 +33,7 @@ export const MOCK_STATISTICS: StatisticsResult = {
     연민: 0,
   },
 };
+
 const MOCK_EMOJI = [
   '불만',
   '중립',

@@ -1,9 +1,11 @@
+import { getMonthEmotion } from '@helper/mock';
+
 export interface StatisticsResult {
   message?: string;
   total?: number;
   option?: 'bar' | 'donut';
   statistics: {
-    불안: number;
+    불만: number;
     중립: number;
     당혹: number;
     기쁨: number;
@@ -21,7 +23,7 @@ export const seriesData = ({
   message,
 }: StatisticsResult) => {
   const optionColor = {
-    불안: '#dc143c',
+    불만: '#dc143c',
     중립: '#ffffe0',
     당혹: '#f4a460',
     기쁨: '#00ff00',
@@ -31,6 +33,7 @@ export const seriesData = ({
     죄책감: '#4b0082',
     연민: '#808080',
   };
+
   const dataOption: string[] = [];
   const dataSeries: number[] = [];
   const dataColor: string[] = [];

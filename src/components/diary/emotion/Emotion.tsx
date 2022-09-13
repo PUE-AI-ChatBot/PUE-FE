@@ -1,24 +1,29 @@
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { DayEmotion } from './DayResults';
+import { DayEmotion } from './DayEmotion';
 
 /**
- *
  * emoji 대신 그림 추가
  *  */
 type IEmotion = DayEmotion;
 export const Emotion = ({ emotion }: IEmotion) => {
   const [emotionEmoji, setEmotionEmoji] = useState('');
+  const emotionOption = {
+    불만: '😠',
+    중립: '🤐',
+    당혹: '😧',
+    기쁨: '😊',
+    걱정: '😰',
+    질투: '😖',
+    슬픔: '😭',
+    죄책감: '😓',
+    연민: '🥺',
+    분노: '😡',
+  };
   useEffect(() => {
-    if (emotion === '기쁨') {
-      setEmotionEmoji('😀');
-    } else if (emotion === '불안') {
-      setEmotionEmoji('😰');
-    } else if (emotion === '분노') {
-      setEmotionEmoji('😡');
-    } else if (emotion === '슬픔') {
-      setEmotionEmoji('😭');
-    }
+    Object.entries(emotionOption).map(([key, val]) =>
+      key === emotion ? setEmotionEmoji(val) : null,
+    );
   }, []);
   return (
     <Typography sx={{ fontSize: 24, padding: 0 }}>{emotionEmoji}</Typography>
