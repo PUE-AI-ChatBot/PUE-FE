@@ -2,7 +2,11 @@ import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 import ProfileAvatar from '@components/avatar/ProfileAvatar';
 
-type IMeta = { nickName: string; userName: string; register: string };
+type IMeta = {
+  nickName?: string | null;
+  userName?: string | null;
+  register: string;
+};
 
 const Meta = ({ nickName, userName, register }: IMeta) => {
   return (

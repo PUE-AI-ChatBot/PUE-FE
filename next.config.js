@@ -3,11 +3,11 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   rewrites: async () => {
-    /**
-     * @desc
-     *   CORS Error 임시 방편
-     */
     return [
+      {
+        source: '/api/:path*',
+        destination: '/api/:path*',
+      },
       {
         source: '/:path*',
         destination: `${process.env.NEXT_PUBLIC_BASE_URL}/:path*`,

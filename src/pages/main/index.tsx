@@ -13,9 +13,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { Box, Stack } from '@mui/system';
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import { Charts } from '@components/charts/Charts';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Main: NextPage = () => {
   const [weekOrMonth, setWeekOrMonth] = useState<boolean>(false);
@@ -25,13 +23,31 @@ const Main: NextPage = () => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
-  const toDay = new Date();
-  const router = useRouter();
-  const { data: session, status } = useSession();
-  if (status === 'unauthenticated') {
-    router.replace('/enter');
-    return null;
-  }
+  const options: ApexOptions = {
+    chart: {
+      type: 'polarArea',
+    },
+    stroke: {
+      colors: ['#fff'],
+    },
+    fill: {
+      opacity: 0.8,
+    },
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: '320px',
+            height: '500px',
+          },
+          legend: {
+            position: 'right',
+          },
+        },
+      },
+    ],
+  };
   return (
     <Stack
       direction={'column'}
@@ -119,7 +135,7 @@ const Main: NextPage = () => {
         }}
       >
         <Typography color={'text.primary'} sx={{ fontWeight: '600' }}>
-          {session?.user?.name}님의 감정 기록
+          병찬님의 감정 기록
         </Typography>
         <Button
           variant={'contained'}
@@ -145,13 +161,19 @@ const Main: NextPage = () => {
           justifyContent: 'center',
           alignItems: 'center',
           width: '320px',
-          height: '280px',
+          height: '300px',
           borderColor: 'primary.light',
           marginTop: '10px',
           paddingBottom: '20px',
         }}
       >
-        <Charts date={toDay} />
+        <ApexChart
+          options={options}
+          series={setting.series}
+          type="polarArea"
+          width={'320px'}
+          height={'300px'}
+        ></ApexChart>
       </Paper>
     </Stack>
   );
