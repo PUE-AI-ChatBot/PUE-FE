@@ -1,11 +1,11 @@
 import { Charts } from '@components/charts/Charts';
-import { DayEmotion } from '@components/diary/emotion/DayResults';
 import { getMonthEmotion } from '@helper/mock';
 import { Box, Typography } from '@mui/material';
 import moment from 'moment';
 import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import { DayEmotion } from './emotion/DayEmotion';
 import { Emotion } from './emotion/Emotion';
 const Calendar = dynamic(() => import('react-calendar'), { ssr: false });
 

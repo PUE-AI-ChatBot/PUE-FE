@@ -1,8 +1,7 @@
 import { StatisticsResult } from '@components/charts/option/Series';
 import { Message } from '@application/chat/Adaptor';
 import moment from 'moment';
-import { DayEmotion } from '@components/diary/emotion/DayResults';
-
+import { DayEmotion } from '@components/diary/emotion/DayEmotion';
 export const MOCK_MESSAGE: Message = {
   writeAt: moment(),
   text: 'hello this is mock',
