@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import QuickButton from './QuickButton';
 import Gnb from './GNB';
 import NavigationProvider from './NavigationProvider';
 import { Box, Container } from '@mui/material';
+import { useRouter } from 'next/router';
 
 type INavigation = React.PropsWithChildren;
 const Navigation = ({ children }: INavigation) => {
+  const router = useRouter();
+
   return (
     <NavigationProvider>
-      <Gnb />
-      <Box bgcolor={'background.default'} overflow={'hidden'}>
+      {router.pathname !== '/enter' ? <Gnb /> : null}
+      <Box bgcolor={'background.default'}>
         <Container
           sx={{
             height: 'calc(100vh - 4.5rem)',
@@ -22,7 +25,7 @@ const Navigation = ({ children }: INavigation) => {
           {children}
         </Container>
       </Box>
-      <QuickButton />
+      {router.pathname !== '/enter' ? <QuickButton /> : null}
     </NavigationProvider>
   );
 };

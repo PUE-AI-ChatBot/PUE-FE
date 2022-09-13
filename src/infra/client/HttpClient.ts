@@ -4,7 +4,7 @@
  *   예외 처리
  */
 export class HttpClient {
-  private base = 'MOCK_BASE';
+  private base = process.env.NEXT_PUBLIC_BASE_URL;
 
   async get<ResponseType>(url: string): Promise<ResponseType> {
     const response = await fetch(`${this.base}/${url}`);

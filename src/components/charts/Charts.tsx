@@ -1,66 +1,42 @@
+import { donutOptions, donutProps } from '@components/charts/option/Options';
+import { seriesData } from '@components/charts/option/Series';
+import { MOCK_STATISTICS } from '@helper/mock';
 import { Box, Typography } from '@mui/material';
-import { ApexOptions } from 'apexcharts';
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
-import { DayEmotion, getDayEmotion } from '../../application/diary/DayResults';
+import { fetchStatMonth } from 'pages/api/chart/chartApi';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-/**
- *
- *
- *  */
 
-export const Charts = () => {
-  const [emotions, setEmotions] = useState<DayEmotion[]>([]);
-  useEffect(() => {
-    setEmotions(getDayEmotion());
-  }, []);
-  const [setting, setSetting] = useState({
-    series: [
-      {
-        data: [(3 / 7) * 100, (2 / 7) * 100, (1 / 7) * 100, (1 / 7) * 100],
-      },
-    ],
-  });
-  const options: ApexOptions = {
-    chart: {
-      type: 'bar',
-      toolbar: {
-        show: false,
-      },
-      dropShadow: {
-        enabled: true,
-        top: 0,
-        left: 0,
-        blur: 3,
-        opacity: 0.5,
-      },
-    },
-    plotOptions: {
-      bar: {
-        horizontal: true,
-        borderRadius: 10,
-        distributed: true,
-      },
-    },
-    grid: {
-      show: false,
-    },
-    xaxis: {
-      labels: { show: false },
-      axisBorder: { show: false },
-      categories: ['불안', '기쁨', '분노', '슬픔'],
-    },
-    colors: ['#33b2df', '#d4526e', '#f48024', '#546E7A'],
+type IDate = { date: Date };
+function formatDate(date: Date, separator: string) {
+  const year = '' + date.getFullYear();
+  let month = '' + (date.getMonth() + 1);
+  let day = '' + date.getDate();
 
-    dataLabels: {
-      enabled: false,
-    },
-    tooltip: {
-      enabled: false,
-    },
-    legend: {
-      show: false,
-    },
-  };
-  return <ApexChart options={options} series={setting.series} type="bar" />;
+  if (month.length < 2) {
+    month = '0' + month;
+  }
+  if (day.length < 2) {
+    day = '0' + day;
+  }
+  return [year, month, day].join(separator);
+}
+export const Charts = ({ date }: IDate) => {
+  const statData = fetchStatMonth(formatDate(date, ''));
+  if (!statData) return <div> Loading...! </div>;
+  return (
+    <Box
+      display={'flex'}
+      justifyContent={'flex-start'}
+      flexDirection={'column'}
+      mt={4}
+    >
+      <ApexChart
+        options={donutProps(statData)}
+        series={seriesData(MOCK_STATISTICS)?.series}
+        type="donut"
+      />
+
+      <Box sx={{ height: '10vh' }} />
+    </Box>
+  );
 };
