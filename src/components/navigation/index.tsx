@@ -20,6 +20,11 @@ const Navigation = ({ children }: INavigation) => {
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
+            /**
+             * @todo
+             *   profile UI padding 임시 수정
+             */
+            px: router.pathname !== '/profile' ? undefined : 0,
           }}
         >
           {children}
