@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { DayEmotion } from './DayResults';
+import { DayEmotion } from './DayEmotion';
 
 /**
  * emoji 대신 그림 추가
