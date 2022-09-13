@@ -15,7 +15,7 @@ const Navigation = ({ children }: INavigation) => {
       <Box bgcolor={'background.default'}>
         <Container
           sx={{
-            height: 'calc(100vh - 4.5rem)',
+            height: 'calc(100vh - 4rem)',
             position: 'relative',
             display: 'flex',
             alignItems: 'center',

@@ -25,8 +25,8 @@ const ChatInput = ({ handler }: IInput) => {
       elevation={3}
       sx={{
         py: 1,
-        px: 4,
-        borderRadius: 6,
+        px: 3,
+        borderRadius: 5,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -40,7 +40,7 @@ const ChatInput = ({ handler }: IInput) => {
           placeholder={'메세지를 입력해 주세요.'}
         />
       </Box>
-      <IconButton type={'submit'}>
+      <IconButton type={'submit'} sx={{ px: 0 }}>
         <Send />
       </IconButton>
     </Paper>

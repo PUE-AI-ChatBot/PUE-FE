@@ -6,13 +6,14 @@ const Footer = ({}: IFooter) => {
   const onPolicy = () => {};
   const onLogout = () => {};
   return (
-    <Stack direction={'column'} width={1} spacing={'5rem'}>
+    <Stack direction={'column'} width={1} spacing={'3rem'}>
       <Stack justifyContent={'space-between'} direction={'row'}>
         <ButtonBase sx={{ p: 1 }}>
           <Typography
             onClick={onPolicy}
             sx={{ textDecoration: 'underline' }}
             color={'text.disabled'}
+            variant={'body2'}
           >
             서비스 약관
           </Typography>
@@ -22,12 +23,13 @@ const Footer = ({}: IFooter) => {
             onClick={onLogout}
             sx={{ textDecoration: 'underline' }}
             color={'text.disabled'}
+            variant={'body2'}
           >
             로그아웃
           </Typography>
         </ButtonBase>
       </Stack>
-      <Typography align={'center'} color={'grey.400'}>
+      <Typography align={'center'} color={'grey.400'} variant={'caption'}>
         Copyright 2022. Team PUE. All rights reserved.
       </Typography>
     </Stack>

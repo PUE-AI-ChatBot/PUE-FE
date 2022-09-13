@@ -1,15 +1,23 @@
 import { Chat } from '@domain/chat/Chat';
 import moment from 'moment';
+import { ChatDirection } from '@domain/chat/ChatTypes';
 
 /**
  * @property {string} response 응답 메세지
  * @property {string} day YYYYMMDD
  * @property {string} time HHMMSS
+ *
+ * @todo
+ *   socket, http api 응답 형식이 다름
+ *   socket : response
+ *   http : utterance
  */
 export interface ChatApiProperty {
   response: string;
+  utterance?: string;
   day: string;
-  time: number;
+  time: string;
+  direction?: ChatDirection;
 }
 
 /**
@@ -20,8 +28,12 @@ export interface ChatApiProperty {
 export class ChatApi {
   static toDomain(data: ChatApiProperty): Chat {
     return Chat.fromProperties({
-      message: data.response,
-      direction: 'receive',
+      message: data.utterance || data.response,
+      direction: data.direction || 'BOT',
+      /**
+       * @todo
+       *   server invalid date
+       */
       date: moment(data.day + 'T' + data.time),
       id: 0,
       userId: 0,
