@@ -1,5 +1,6 @@
 import { Chat } from '@domain/chat/Chat';
 import moment, { Moment } from 'moment';
+import { ChatDirection } from '@domain/chat/ChatTypes';
 
 /**
  * @todo
@@ -13,6 +14,7 @@ interface User {
 export interface Message {
   text: string;
   writeAt: Moment;
+  direction: ChatDirection;
   user: User;
 }
 
@@ -29,6 +31,7 @@ export class MessageAdaptor {
     return {
       text,
       writeAt: moment(),
+      direction: 'USER',
       user: {
         name: 'MOCK',
         photo: 'MOCK',
@@ -41,6 +44,7 @@ export class MessageAdaptor {
     return {
       text: message,
       writeAt: date,
+      direction,
       user: {
         name: userName,
         photo: 'MOCK',
@@ -55,7 +59,7 @@ export class MessageAdaptor {
       userName: message.user.name,
       date: message.writeAt,
       message: message.text,
-      direction: 'send',
+      direction: message.direction,
     });
   }
 }

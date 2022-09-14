@@ -30,7 +30,7 @@ const Gnb = () => {
       <AppBar
         position={'sticky'}
         sx={{
-          height: '4.5rem',
+          height: '4rem',
           bgcolor: 'primary.main',
         }}
       >
@@ -49,7 +49,7 @@ const Gnb = () => {
           </Box>
 
           <Box justifyContent={'center'} width={1} display={'flex'}>
-            <Typography color={'white'} variant={'h5'}>
+            <Typography color={'white'} fontSize={'1.4rem'}>
               {screenName}
             </Typography>
           </Box>

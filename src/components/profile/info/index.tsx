@@ -11,7 +11,7 @@ const Info = () => {
   const { data: session, status } = useSession();
 
   return (
-    <Box mt={'4rem'} mb={'2rem'} width={'27rem'}>
+    <Box mt={'3rem'} mb={'2rem'} width={'21rem'}>
       <Meta
         nickName={session?.user?.name}
         userName={session?.user?.name}

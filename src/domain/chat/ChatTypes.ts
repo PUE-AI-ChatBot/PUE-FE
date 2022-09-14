@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
 
-export type ChatDirection = 'send' | 'receive';
+export type ChatDirection = 'USER' | 'BOT';
 
 export interface ChatProperties {
   id: number;

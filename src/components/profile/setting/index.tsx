@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ButtonBase, Stack, Switch } from '@mui/material';
 import SettingItem from '@components/profile/setting/SettingItem';
 import {
+  FavoriteBorderOutlined,
   HeadsetMic,
   KeyboardArrowRight,
   NightsStayOutlined,
@@ -27,6 +28,15 @@ const Setting = ({}: ISetting) => {
           </ButtonBase>
         }
         title={'상담사 연결'}
+      />
+      <SettingItem
+        leftIcon={<FavoriteBorderOutlined />}
+        handlerBtn={
+          <ButtonBase>
+            <KeyboardArrowRight />
+          </ButtonBase>
+        }
+        title={'치료 프로그램'}
       />
       <SettingItem
         leftIcon={<NightsStayOutlined />}

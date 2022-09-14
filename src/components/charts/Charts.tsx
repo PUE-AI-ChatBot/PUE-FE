@@ -1,66 +1,57 @@
-import { Box, Typography } from '@mui/material';
-import { ApexOptions } from 'apexcharts';
+import { donutProps } from '@components/charts/option/Options';
+import { seriesData } from '@components/charts/option/Series';
+import { Box } from '@mui/material';
+import { Container } from '@mui/system';
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
-import { DayEmotion, getDayEmotion } from '../../application/diary/DayResults';
+import { fetchStatMonth } from 'pages/api/chart/chartApi';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+type IDate = { date: Date };
+function formatDate(date: Date, separator: string) {
+  const year = '' + date.getFullYear();
+  let month = '' + (date.getMonth() + 1);
+  let day = '' + date.getDate();
+
+  if (month.length < 2) {
+    month = '0' + month;
+  }
+  if (day.length < 2) {
+    day = '0' + day;
+  }
+  return [year, month, day].join(separator);
+}
 /**
- *
- *
- *  */
-
-export const Charts = () => {
-  const [emotions, setEmotions] = useState<DayEmotion[]>([]);
-  useEffect(() => {
-    setEmotions(getDayEmotion());
-  }, []);
-  const [setting, setSetting] = useState({
-    series: [
-      {
-        data: [(3 / 7) * 100, (2 / 7) * 100, (1 / 7) * 100, (1 / 7) * 100],
-      },
-    ],
-  });
-  const options: ApexOptions = {
-    chart: {
-      type: 'bar',
-      toolbar: {
-        show: false,
-      },
-      dropShadow: {
-        enabled: true,
-        top: 0,
-        left: 0,
-        blur: 3,
-        opacity: 0.5,
-      },
-    },
-    plotOptions: {
-      bar: {
-        horizontal: true,
-        borderRadius: 10,
-        distributed: true,
-      },
-    },
-    grid: {
-      show: false,
-    },
-    xaxis: {
-      labels: { show: false },
-      axisBorder: { show: false },
-      categories: ['불안', '기쁨', '분노', '슬픔'],
-    },
-    colors: ['#33b2df', '#d4526e', '#f48024', '#546E7A'],
-
-    dataLabels: {
-      enabled: false,
-    },
-    tooltip: {
-      enabled: false,
-    },
-    legend: {
-      show: false,
+ * 시연 동영상 끝나면 데이터 다시 연결 필요!
+ */
+export const Charts = ({ date }: IDate) => {
+  const statData = fetchStatMonth(formatDate(date, ''));
+  const tempData = {
+    statistics: {
+      불만: 2,
+      중립: 4,
+      당혹: 2,
+      기쁨: 4,
+      걱정: 6,
+      질투: 0,
+      슬픔: 3,
+      죄책감: 0,
+      연민: 3,
     },
   };
-  return <ApexChart options={options} series={setting.series} type="bar" />;
+  if (!statData) return <div> Loading...! </div>;
+  return (
+    <Container>
+      <Box
+        display={'flex'}
+        justifyContent={'flex-start'}
+        flexDirection={'column'}
+      >
+        <ApexChart
+          options={donutProps(tempData)}
+          series={seriesData(tempData)?.series}
+          type="donut"
+        />
+      </Box>
+    </Container>
+  );
 };

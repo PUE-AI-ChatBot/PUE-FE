@@ -21,12 +21,9 @@
       "@domain/*": ["domain/*"],
       "@infra/*": ["infra/*"],
       "@page/*": ["page/*"],
-      "@helper/*": ["helper/*"],
+      "@helper/*": ["helper/*"]
     }
   },
-  "include": [
-    "next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

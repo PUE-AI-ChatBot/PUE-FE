@@ -10,15 +10,15 @@ type IMeta = {
 
 const Meta = ({ nickName, userName, register }: IMeta) => {
   return (
-    <Stack direction={'row'} spacing={'2rem'} position={'relative'}>
+    <Stack direction={'row'} position={'relative'}>
       <Box
         position={'absolute'}
-        width={'26rem'}
+        width={'20rem'}
         bgcolor={'primary.main'}
-        borderRadius={'13rem'}
-        top={'-11rem'}
-        ml={'8rem'}
-        height={'26rem'}
+        borderRadius={'10rem'}
+        top={'-8rem'}
+        ml={'6rem'}
+        height={'20rem'}
       />
       <Box
         p={0.7}
@@ -27,17 +27,27 @@ const Meta = ({ nickName, userName, register }: IMeta) => {
         borderRadius={'50%'}
         zIndex={0}
       >
-        <ProfileAvatar length={'12rem'} />
+        <ProfileAvatar length={'9rem'} />
       </Box>
-      <Stack spacing={'0.3rem'} justifyContent={'center'} position={'relative'}>
-        <Typography variant={'h4'} color={'grey.50'} fontWeight={'bold'}>
+      <Stack
+        spacing={'0.3rem'}
+        justifyContent={'center'}
+        position={'relative'}
+        ml={'2rem'}
+      >
+        <Typography
+          variant={'h4'}
+          color={'grey.50'}
+          fontWeight={'bold'}
+          sx={{ wordBreak: 'break-word' }}
+        >
           {nickName}
         </Typography>
         <Typography variant={'h6'} color={'grey.200'}>
           {userName}
         </Typography>
         <Typography
-          variant={'body1'}
+          variant={'body2'}
           pt={'1rem'}
           color={'grey.300'}
           boxSizing={'border-box'}
