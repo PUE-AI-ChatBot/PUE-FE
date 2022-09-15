@@ -69,7 +69,12 @@ SWR
 </div>
 
 
-## REFERENCE
+## DOCUMENTATION
+[Branch Strategy](https://github.com/PUE-AI-ChatBot/PUE-FE/wiki/Branch-Strategy)
+
+[Commit Convention](https://github.com/PUE-AI-ChatBot/PUE-FE/wiki/Commit-Convention)
+
+[Workflow](https://github.com/PUE-AI-ChatBot/PUE-FE/wiki/Workflow)
 
 ## LICENSE
 Preparing... 
