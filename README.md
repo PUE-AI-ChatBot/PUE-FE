@@ -77,12 +77,12 @@ GOOGLE_AUTH_URL=NEXT_PUBLIC_BASE_URL+"/oauth/authorization/google?redirect_uri="
 
 ## 📜 Feature
 
-| <img width="260"  alt="로그인" src="https://user-images.githubusercontent.com/79739512/190325766-470ddbd1-9362-408e-bd40-994b34381461.png"> | <img width="260"  alt="스크린샷 2022-09-15 오후 2 52 16" src="https://user-images.githubusercontent.com/79739512/190325787-fc96abe8-ebf8-43f0-8a5b-77f6eaee7d66.png"> | 
+| <img width="300"  alt="로그인" src="https://user-images.githubusercontent.com/79739512/190325766-470ddbd1-9362-408e-bd40-994b34381461.png"> | <img width="300"  alt="스크린샷 2022-09-15 오후 2 52 16" src="https://user-images.githubusercontent.com/79739512/190325787-fc96abe8-ebf8-43f0-8a5b-77f6eaee7d66.png"> | 
 | :---: | :---: | 
 | **로그인** | **메인 화면** | 
 
 
-| <img width="260" alt="스크린샷 2022-09-15 오후 2 52 44" src="https://user-images.githubusercontent.com/79739512/190325801-7534e041-ea18-4aff-8028-bb2260acf3a7.png"> | <img width="260" alt="스크린샷 2022-09-15 오후 2 53 32" src="https://user-images.githubusercontent.com/79739512/190325879-71b3a2f2-8b57-44fc-a496-eee68868a0df.png"> |
+| <img width="300" alt="스크린샷 2022-09-15 오후 2 52 44" src="https://user-images.githubusercontent.com/79739512/190325801-7534e041-ea18-4aff-8028-bb2260acf3a7.png"> | <img width="300" alt="스크린샷 2022-09-15 오후 2 53 32" src="https://user-images.githubusercontent.com/79739512/190325879-71b3a2f2-8b57-44fc-a496-eee68868a0df.png"> |
 | :---: | :---: |
 | **상담** | **감정 캘린더** | 
 
@@ -90,7 +90,7 @@ GOOGLE_AUTH_URL=NEXT_PUBLIC_BASE_URL+"/oauth/authorization/google?redirect_uri="
 
 | **프로필** |
 | :---: |
-| <img width="260" alt="스크린샷 2022-09-15 오후 2 53 13" src="https://user-images.githubusercontent.com/79739512/190325889-2bdaae9e-c778-48fe-a043-fe979285fc6c.png"> |
+| <img width="300" alt="스크린샷 2022-09-15 오후 2 53 13" src="https://user-images.githubusercontent.com/79739512/190325889-2bdaae9e-c778-48fe-a043-fe979285fc6c.png"> |
 | 마이 페이지에서 이동 | 연도별 필터링, 해당 달의 작성 일수 확인 가능 | 카드 선택시 |
 
 ## 💻 Developers
