@@ -86,12 +86,10 @@ GOOGLE_AUTH_URL=NEXT_PUBLIC_BASE_URL+"/oauth/authorization/google?redirect_uri="
 | :---: | :---: |
 | **상담** | **감정 캘린더** | 
 
- 
 
-| **프로필** |
-| :---: |
 | <img width="300" alt="스크린샷 2022-09-15 오후 2 53 13" src="https://user-images.githubusercontent.com/79739512/190325889-2bdaae9e-c778-48fe-a043-fe979285fc6c.png"> |
-| 마이 페이지에서 이동 | 연도별 필터링, 해당 달의 작성 일수 확인 가능 | 카드 선택시 |
+| :---: |
+| **프로필** |
 
 ## 💻 Developers
 <div align="left">
