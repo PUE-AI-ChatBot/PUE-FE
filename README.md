@@ -29,21 +29,14 @@ fatigue in virtual conferences than usual conversations. We think the main cause
 
 #### Library
 
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/react?style=flat-square&color=61DAFB">
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/dev/@testing-library/react?style=flat-square&color=E34F26">
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/dev/jest?style=flat-square&color=">
+<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/react?style=flat-square&color=61DAFB"> <img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/dev/@testing-library/react?style=flat-square&color=E34F26"> <img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/dev/jest?style=flat-square&color=">
 <br/>
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/swr?style=flat-square&color=141414">
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/socket.io-client?style=flat-square&color=42b983">
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/axios?style=flat-square&color=671ddf">
-<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/apexcharts?style=flat-square&color=007ACC">
+<img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/swr?style=flat-square&color=141414"> <img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/socket.io-client?style=flat-square&color=42b983"> <img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/axios?style=flat-square&color=671ddf"> <img src="https://img.shields.io/github/package-json/dependency-version/PUE-AI-ChatBot/PUE-FE/apexcharts?style=flat-square&color=007ACC">
 
 
 ### Communication
 
-<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white"/> 
-<img src="https://img.shields.io/badge/Slack-4A154B?style=flat-square&logo=Slack&logoColor=white"/> 
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white"/>  <img src="https://img.shields.io/badge/Slack-4A154B?style=flat-square&logo=Slack&logoColor=white"/>  <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
 
 ## ⚙️ Project Settings
 
