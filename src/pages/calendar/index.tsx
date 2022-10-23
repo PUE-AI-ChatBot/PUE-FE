@@ -1,20 +1,22 @@
 import type { NextPage } from 'next';
 import { Container } from '@mui/material';
 import Diary from '../../components/diary';
-import { Charts } from '../../components/charts/Charts';
+import Layout from '@components/navigation/layout';
 
 const CalendarPage: NextPage = () => {
   return (
-    <Container
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
-      <Diary />
-    </Container>
+    <Layout hasHeaderBar backArrow profileButton hasQuickButton>
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <Diary />
+      </Container>
+    </Layout>
   );
 };
 

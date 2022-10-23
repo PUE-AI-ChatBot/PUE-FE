@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import { ArrowBackOutlined, PersonOutlineOutlined } from '@mui/icons-material';
 import {
   AppBar,
@@ -10,7 +9,13 @@ import {
   useScrollTrigger,
 } from '@mui/material';
 import Link from 'next/link';
+import React, { useContext } from 'react';
 import { NavigationContext, SCREEN_NAME } from './NavigationProvider';
+
+interface HeaderProps {
+  profileButton?: boolean;
+  backArrow?: boolean;
+}
 
 function ElevationScroll({ children }: { children: React.ReactElement }) {
   const trigger = useScrollTrigger({
@@ -23,7 +28,7 @@ function ElevationScroll({ children }: { children: React.ReactElement }) {
   });
 }
 
-const Gnb = () => {
+const HeaderBar = ({ profileButton, backArrow }: HeaderProps) => {
   const [screenName, setScreenName] = useContext(NavigationContext);
   return (
     <ElevationScroll>
@@ -36,7 +41,7 @@ const Gnb = () => {
       >
         <Toolbar sx={{ width: 1, margin: 'auto' }}>
           <Box width={1}>
-            {screenName !== SCREEN_NAME.home && (
+            {backArrow && (
               <Button
                 color={'inherit'}
                 onClick={() => setScreenName(SCREEN_NAME.home)}
@@ -54,15 +59,17 @@ const Gnb = () => {
             </Typography>
           </Box>
           <Box width={1} display={'flex'} justifyContent={'flex-end'}>
-            <IconButton
-              onClick={() => setScreenName(SCREEN_NAME.profile)}
-              size="large"
-              color="inherit"
-            >
-              <Link href={'/profile'}>
-                <PersonOutlineOutlined fontSize={'large'} />
-              </Link>
-            </IconButton>
+            {profileButton && (
+              <IconButton
+                onClick={() => setScreenName(SCREEN_NAME.profile)}
+                size="large"
+                color="inherit"
+              >
+                <Link href={'/profile'}>
+                  <PersonOutlineOutlined fontSize={'large'} />
+                </Link>
+              </IconButton>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
@@ -70,4 +77,4 @@ const Gnb = () => {
   );
 };
 
-export default Gnb;
+export default HeaderBar;

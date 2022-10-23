@@ -21,9 +21,7 @@ function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <SessionProvider session={pageProps.session}>
           <CssBaseline />
-          <Navigation>
-            <Component {...pageProps} />
-          </Navigation>
+          <Component {...pageProps} />
         </SessionProvider>
       </ThemeProvider>
     </ToggleTheme.Provider>

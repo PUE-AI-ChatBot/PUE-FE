@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import ChatContainer from '@components/chat';
+import Layout from '@components/navigation/layout';
 
 export interface IChat {
   isUser: boolean;
@@ -18,7 +19,11 @@ export interface IChat {
  */
 
 const Chat: NextPage = () => {
-  return <ChatContainer />;
+  return (
+    <Layout hasHeaderBar backArrow profileButton>
+      <ChatContainer />
+    </Layout>
+  );
 };
 
 export default Chat;
