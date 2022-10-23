@@ -1,10 +1,12 @@
+import URL from 'utils/url';
+
 /**
  * @todo
  *   axios로 재작성
  *   예외 처리
  */
 export class HttpClient {
-  private base = process.env.NEXT_PUBLIC_BASE_URL;
+  private base = URL.BASE;
 
   async get<ResponseType>(url: string): Promise<ResponseType> {
     const response = await fetch(`${url}`);
