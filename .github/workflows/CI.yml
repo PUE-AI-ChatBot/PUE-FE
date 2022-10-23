@@ -1,17 +1,12 @@
-# 0. install
-# 1. lint
-# 2. jest
-# 3. write test result
-
 name: CI
 
 on:
+  pull_request:
+    branches:
+      - epic/**
+      - develop
+      - main
   workflow_dispatch:
-#  pull_request:
-#    branches:
-#      - epic/**
-#      - develop
-#      - main
 
 jobs:
   job-install:
