@@ -24,7 +24,7 @@ ENV NODE_ENV production
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-COPY .env ./
+COPY .env.local ./
 
 RUN export $(cat .env.local | xargs)
 
