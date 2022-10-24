@@ -24,6 +24,10 @@ ENV NODE_ENV production
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
+COPY .env ./
+
+RUN export $(cat .env.local | xargs)
+
 # builder 에서 복사해야할 파일이 있다면 추가하면 된다.
 COPY --from=builder /app/public ./public
 
@@ -37,4 +41,4 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+CMD ["node","server.js"]
