@@ -30,42 +30,8 @@ jobs:
         if: steps.cache-dependencies.output.cache-hit != 'true'
         run: npm install
 
-#  job-lint:
-#    name: Lint
-#    needs: job-install
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout current commit (${{ github.sha }})
-#        uses: actions/checkout@v3
-#
-#      - name: Check dependencies cache
-#        uses: actions/cache@v3
-#        with:
-#          path: node_modules
-#          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-#          restore-keys: |
-#            ${{ runner.OS }}-build-
-#
 #      - name: Run Lint
 #        run: npm run lint
-
-  job-test:
-    name: Test
-    needs: job-install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout current commit (${{ github.sha }})
-        uses: actions/checkout@v3
-
-      - name: Check dependencies cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-
 
       - name: Run Test
         run: npx jest --ci --json --coverage --testLocationInResults --outputFile=report.json
@@ -74,12 +40,3 @@ jobs:
         with:
           coverage-file: report.json
           base-coverage-file: report.json
-
-#      - name: Report Coverage
-#        uses: marocchino/sticky-pull-request-comment@v2
-#        with:
-#          # pass output from the previous step by id.
-#          message: ${{ steps.coverage.outputs.report }}
-
-
-
