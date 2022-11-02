@@ -5,7 +5,7 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
 
 # deps 에서 설치한 파일중 node_modules만 가져온걸 볼 수 있다.
 FROM node:16-alpine AS builder
