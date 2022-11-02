@@ -4,7 +4,7 @@
  *   예외 처리
  */
 export class HttpClient {
-  private base = process.env.BASE_URL
+  private base = process.env.NEXT_PUBLIC_BASE_URL;
 
   async get<ResponseType>(url: string): Promise<ResponseType> {
     const response = await fetch(`${url}`);

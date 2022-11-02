@@ -1,7 +1,7 @@
 import axios from 'axios';
 import useSWR from 'swr';
 
-const URL = process.env.BASE_URL;
+const URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
