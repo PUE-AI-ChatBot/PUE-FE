@@ -10,8 +10,8 @@ const nextConfig = {
         destination: '/api/:path*',
       },
       {
-        source: '/stat/:path*',
-        destination: `https://api.restinroi.com/stat/:path*`,
+        source: '/:path*',
+        destination: `https://api.restinroi.com/:path*`,
       },
     ];
   },
