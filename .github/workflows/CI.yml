@@ -5,7 +5,7 @@ on:
     branches:
       - epic/**
       - develop
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
