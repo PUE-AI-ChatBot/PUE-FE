@@ -7,7 +7,7 @@ const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 export const fetchStatMonth = (date: string) => {
   const { data, error } = useSWR(
-    `${URL}/stat/summary/number/latest/${date}/before/30`,
+    `/stat/summary/number/latest/${date}/before/30`,
     fetcher,
   );
   return data;
