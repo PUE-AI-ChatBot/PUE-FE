@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonBase, Stack, Typography } from '@mui/material';
+import { signOut } from 'next-auth/react';
 
 type IFooter = {};
 const Footer = ({}: IFooter) => {
@@ -19,14 +20,20 @@ const Footer = ({}: IFooter) => {
           </Typography>
         </ButtonBase>
         <ButtonBase sx={{ p: 1 }}>
-          <Typography
-            onClick={onLogout}
-            sx={{ textDecoration: 'underline' }}
-            color={'text.disabled'}
-            variant={'body2'}
+          <button
+            type="button"
+            onClick={() => signOut()}
+            style={{ border: 'none', backgroundColor: 'transparent' }}
           >
-            로그아웃
-          </Typography>
+            <Typography
+              onClick={onLogout}
+              sx={{ textDecoration: 'underline' }}
+              color={'text.disabled'}
+              variant={'body2'}
+            >
+              로그아웃
+            </Typography>
+          </button>
         </ButtonBase>
       </Stack>
       <Typography align={'center'} color={'grey.400'} variant={'caption'}>
