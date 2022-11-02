@@ -15,9 +15,17 @@ import History from '@components/profile/history';
 import Setting from '@components/profile/setting';
 import Footer from '@components/profile/footer';
 import { Box, Stack } from '@mui/material';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 type IProfile = {};
 const Profile = ({}: IProfile) => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  if (status !== 'authenticated') {
+    router.replace('/enter');
+    return null;
+  }
   return (
     <Box width={1} sx={{ overflowX: 'hidden' }}>
       <Stack
