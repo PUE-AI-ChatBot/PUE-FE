@@ -31,8 +31,8 @@ const Main: NextPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const toDay = new Date();
-  if (status === 'authenticated') {
-    //router.replace('/enter');
+  if (status === 'unauthenticated') {
+    router.replace('/enter');
     return null;
   }
 
