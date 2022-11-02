@@ -15,7 +15,7 @@ const Login = ({ loginSite }: ILoginSite) => {
           size={'large'}
           sx={{ width: '90vw', height: 56, bgcolor: '#fff' }}
           onClick={() =>
-            signIn('google', { callbackUrl: 'http://localhost:3000' })
+            signIn('google', { callbackUrl: 'https://pue.restinroi.co' })
           }
         >
           <SvgIcon viewBox={'0 0 48 48'} sx={{ mr: 3, color: 'black' }}>
@@ -34,7 +34,7 @@ const Login = ({ loginSite }: ILoginSite) => {
           size={'large'}
           sx={{ width: '90vw', height: 56, bgcolor: '#f9e000' }}
           onClick={() =>
-            signIn('kakao', { callbackUrl: 'http://localhost:3000' })
+            signIn('kakao', { callbackUrl: 'https://pue.restinroi.com' })
           }
         >
           <SvgIcon viewBox={'0 0 512 512'} sx={{ mr: 3, color: 'black' }}>
