@@ -15,7 +15,7 @@ const Login = ({ loginSite }: ILoginSite) => {
           size={'large'}
           sx={{ width: '90vw', height: 56, bgcolor: '#fff' }}
           onClick={() =>
-            signIn('google', { callbackUrl: 'https://pue.restinroi.co' })
+            signIn('google', { callbackUrl: 'https://pue.restinroi.com' })
           }
         >
           <SvgIcon viewBox={'0 0 48 48'} sx={{ mr: 3, color: 'black' }}>
