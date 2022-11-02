@@ -83,15 +83,15 @@ const Main: NextPage = () => {
             주요 기능
           </Typography>
           <HalfBoxWrapper>
-            <MainBox
-              width={1}
-              height={'100px'}
-              sx={{
-                background: 'linear-gradient(90deg, #8D9EFF, #B9E0FF)',
-                cursor: 'click',
-              }}
-            >
-              <Link href={'/chat'}>
+            <Link href={'/chat'}>
+              <MainBox
+                width={1}
+                height={'100px'}
+                sx={{
+                  background: 'linear-gradient(90deg, #8D9EFF, #B9E0FF)',
+                  cursor: 'click',
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: '16px',
@@ -101,8 +101,8 @@ const Main: NextPage = () => {
                 >
                   대화하기
                 </Typography>
-              </Link>
-            </MainBox>
+              </MainBox>
+            </Link>
             <MainBox
               width={1}
               height={'100px'}
