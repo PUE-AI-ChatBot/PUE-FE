@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
@@ -10,7 +11,7 @@ const nextConfig = {
       },
       {
         source: '/:path*',
-        destination: `${process.env.NEXT_PUBLIC_BASE_URL}/:path*`,
+        destination: `https://api.restinroi.com/*`,
       },
     ];
   },

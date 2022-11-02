@@ -1,6 +1,8 @@
 import axios from 'axios';
 import useSWR from 'swr';
 
+const URL = process.env.BASE_URL;
+
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 export const fetchStatMonth = (month: string) => {
@@ -8,17 +10,11 @@ export const fetchStatMonth = (month: string) => {
   return data;
 };
 export const fetchStatAllDay = () => {
-  const { data, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/stat/allday`,
-    fetcher,
-  );
+  const { data, error } = useSWR(`${URL}/stat/allday`, fetcher);
   return data;
 };
 
 export const fetchStatDay = (date: string) => {
-  const { data, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/stat/day/${date}`,
-    fetcher,
-  );
+  const { data, error } = useSWR(`${URL}/stat/day/${date}`, fetcher);
   return data;
 };

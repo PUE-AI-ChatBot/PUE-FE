@@ -49,18 +49,11 @@
 #### Set `.env.local`
 
 ```dotenv
-######## 설정 필요 ########
-NEXT_PUBLIC_BASE_URL=YOUR_SERVER_HOST
 GOOGLE_CLIENT_ID=YOUR_GOOGKE_CLIENT_ID
 GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET
-KAKAO_CLIENT_ID=YOUT_KAKAO_CLIENT_ID
-SECRET=YOUT_SECRET // 무슨 시크릿 키..?
-#########################
 
-NEXTAUTH_URL=http://localhost:3000/api/auth
-OAUTH_REDIRECT_URI="http://localhost:3000/oauth/redirect"
-KAKAO_CLIENT_SECRET="anykey"
-GOOGLE_AUTH_URL=NEXT_PUBLIC_BASE_URL+"/oauth/authorization/google?redirect_uri="+OAUTH_REDIRECT_URI
+KAKAO_CLIENT_ID=YOUT_KAKAO_CLIENT_ID
+KAKAO_CLIENT_SECRET=YOUT_KAKAO_CLIENT_SECRET
 ```
 
 #### Start dev-server

@@ -22,7 +22,7 @@ export class SocketClient {
      *   인증 토큰 추가
      */
     if (this.socket === null) {
-      this.socket = io(`${process.env.NEXT_PUBLIC_BASE_URL}/realchat`, {
+      this.socket = io(`${process.env.BASE_URL}/realchat`, {
         transports: ['websocket', 'polling'],
         upgrade: false,
         forceNew: true,
