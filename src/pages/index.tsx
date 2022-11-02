@@ -1,4 +1,4 @@
-import { Avatar, Chip, Paper, Typography } from '@mui/material';
+import { Avatar, Button, Chip, Paper, Typography } from '@mui/material';
 import FaceIcon from '@mui/icons-material/Face';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import InfoIcon from '@mui/icons-material/Info';
@@ -18,12 +18,21 @@ const GrayFullDivider = styled.div`
   width: 100vw;
 `;
 
+const TypoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+`;
+
 const Main: NextPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const toDay = new Date();
-  if (status === 'unauthenticated') {
-    router.replace('/enter');
+  if (status === 'authenticated') {
+    //router.replace('/enter');
     return null;
   }
 
@@ -83,40 +92,45 @@ const Main: NextPage = () => {
             주요 기능
           </Typography>
           <HalfBoxWrapper>
-            <Link href={'/chat'}>
-              <MainBox
-                width={1}
-                height={'100px'}
-                sx={{
-                  background: 'linear-gradient(90deg, #8D9EFF, #B9E0FF)',
-                  cursor: 'click',
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    color: 'white',
-                  }}
-                >
-                  대화하기
-                </Typography>
-              </MainBox>
-            </Link>
+            <MainBox
+              width={1}
+              height={'100px'}
+              sx={{
+                background: 'linear-gradient(90deg, #8D9EFF, #B9E0FF)',
+              }}
+            >
+              <Link href={'/chat'}>
+                <TypoWrapper>
+                  <Typography
+                    sx={{
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: 'white',
+                      backgroundSize: '200px 100px',
+                    }}
+                  >
+                    대화하기
+                  </Typography>
+                </TypoWrapper>
+              </Link>
+            </MainBox>
+
             <MainBox
               width={1}
               height={'100px'}
               sx={{ background: 'linear-gradient(90deg, #B3FFAE, #F0FF42)' }}
             >
               <Link href={'/calendar'}>
-                <Typography
-                  sx={{
-                    fontSize: '16px',
-                    fontWeight: '600',
-                  }}
-                >
-                  감정 달력
-                </Typography>
+                <TypoWrapper>
+                  <Typography
+                    sx={{
+                      fontSize: '16px',
+                      fontWeight: '600',
+                    }}
+                  >
+                    감정 달력
+                  </Typography>
+                </TypoWrapper>
               </Link>
             </MainBox>
           </HalfBoxWrapper>
