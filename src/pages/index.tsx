@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Charts } from '@components/charts/Charts';
 import { toStringByFormatting, dayName } from '@components/main/date';
+import { useSession } from 'next-auth/react';
 
 const GrayFullDivider = styled.div`
   border-top: 2px solid #e0e0e0;
@@ -18,8 +19,13 @@ const GrayFullDivider = styled.div`
 `;
 
 const Main: NextPage = () => {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const toDay = new Date();
+  if (status === 'unauthenticated') {
+    router.replace('/enter');
+    return null;
+  }
 
   return (
     <Layout hasHeaderBar profileButton hasQuickButton>
