@@ -1,159 +1,171 @@
-import {
-  Avatar,
-  Button,
-  Chip,
-  IconButton,
-  Paper,
-  Typography,
-} from '@mui/material';
+import { Avatar, Chip, Paper, Typography } from '@mui/material';
 import FaceIcon from '@mui/icons-material/Face';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import { Box, Stack } from '@mui/system';
+import InfoIcon from '@mui/icons-material/Info';
+import { Box } from '@mui/system';
 import type { NextPage } from 'next';
-import { useState } from 'react';
-import { Charts } from '@components/charts/Charts';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import Layout from '@components/navigation/layout';
+import styled from 'styled-components';
+import { HalfBoxWrapper, MainBox } from '@components/main/boxs';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { Charts } from '@components/charts/Charts';
+import { toStringByFormatting, dayName } from '@components/main/date';
+
+const GrayFullDivider = styled.div`
+  border-top: 2px solid #e0e0e0;
+  width: 100vw;
+`;
 
 const Main: NextPage = () => {
-  const [weekOrMonth, setWeekOrMonth] = useState<boolean>(false);
-  const [setting, setSetting] = useState({
-    series: [14, 23, 21, 17, 15, 10, 12, 17, 21],
-  });
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-  };
-  const toDay = new Date();
   const router = useRouter();
-  const { data: session, status } = useSession();
-  if (status === 'unauthenticated') {
-    router.replace('/enter');
-    return null;
-  }
+  const toDay = new Date();
+
   return (
     <Layout hasHeaderBar profileButton hasQuickButton>
-      <Stack
-        direction={'column'}
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
         justifyContent={'center'}
         alignItems={'center'}
-        width={'fit-content'}
-        overflow={'auto'}
-        sx={{ m: '1rem' }}
+        margin={'1rem'}
+        gap={1}
       >
-        <Chip
-          icon={<FaceIcon />}
-          variant={'outlined'}
-          color={'primary'}
-          label={
-            <Typography color={'text.primary'}>
-              안녕하세요. 저는 PUE라고 해요!
-            </Typography>
-          }
-          onClick={handleClick}
-          sx={{ width: '320px', height: '50px' }}
-        ></Chip>
-        <Box
-          sx={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'flex-end',
-            alignItems: 'flex-end',
-            marginTop: '20px',
-          }}
-        >
-          <IconButton
-            color="primary"
-            aria-label="charactar"
+        <Box display={'flex'} gap={5}>
+          <Avatar
+            src={'/profile.jpg'}
+            variant={'rounded'}
             sx={{
-              width: '170px',
-              height: '220px',
+              width: '120px',
+              height: '120px',
+              boxShadow: '1',
             }}
-            href={'/chat'}
-          >
-            <Avatar
-              src={'/profile.jpg'}
-              variant={'rounded'}
-              sx={{
-                width: '170px',
-                height: '220px',
-              }}
-            ></Avatar>
-          </IconButton>
+          />
           <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              margin: '0 15px',
-            }}
+            display={'flex'}
+            flexDirection={'column'}
+            alignItems={'center'}
+            gap={1}
           >
-            <Typography
-              color={'text.primary'}
-              sx={{ fontSize: '12px', fontWeight: '600' }}
-            >
-              Today
-            </Typography>
-            <Typography
-              color={'text.primary'}
-              sx={{ fontSize: '14px', fontWeight: '600' }}
-            >
-              감정 날씨
-            </Typography>
-            <IconButton color="primary" aria-label="emotionWeather">
+            <Chip
+              icon={<FaceIcon />}
+              variant={'outlined'}
+              color={'primary'}
+              label={
+                <Typography color={'text.primary'} fontSize={12}>
+                  안녕하세요. 저는 PUE라고 해요!
+                </Typography>
+              }
+            ></Chip>
+            <MainBox flexDirection={'column'} width={'100px'}>
+              <Typography sx={{ fontWeight: '400' }}> 오늘 기분 </Typography>
               <WbSunnyIcon
                 color={'primary'}
-                sx={{ width: '60px', height: '60px', marginTop: '5px' }}
+                sx={{ width: '30px', height: '30px' }}
               />
-            </IconButton>
+            </MainBox>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '0 5px',
-            marginTop: '30px',
-          }}
-        >
-          <Typography color={'text.primary'} sx={{ fontWeight: '600' }}>
-            {session?.user?.name}님의 감정 기록
-          </Typography>
-          <Button
-            variant={'contained'}
-            onClick={() => setWeekOrMonth(!weekOrMonth)}
-            sx={{ width: '35px', height: '25px' }}
+        <GrayFullDivider />
+        <Box display={'flex'} flexDirection={'column'}>
+          <Typography
+            sx={{
+              fontSize: '16px',
+              fontWeight: '500',
+            }}
           >
-            <Typography
-              color={'text.primary'}
+            주요 기능
+          </Typography>
+          <HalfBoxWrapper>
+            <MainBox
+              width={1}
+              height={'100px'}
               sx={{
-                color: 'white',
-                fontSize: '12px',
-                fontWeight: '600',
+                background: 'linear-gradient(90deg, #8D9EFF, #B9E0FF)',
+                cursor: 'click',
               }}
             >
-              {weekOrMonth ? 'Month' : 'Week'}
-            </Typography>
-          </Button>
+              <Link href={'/chat'}>
+                <Typography
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    color: 'white',
+                  }}
+                >
+                  대화하기
+                </Typography>
+              </Link>
+            </MainBox>
+            <MainBox
+              width={1}
+              height={'100px'}
+              sx={{ background: 'linear-gradient(90deg, #B3FFAE, #F0FF42)' }}
+            >
+              <Link href={'/calendar'}>
+                <Typography
+                  sx={{
+                    fontSize: '16px',
+                    fontWeight: '600',
+                  }}
+                >
+                  감정 달력
+                </Typography>
+              </Link>
+            </MainBox>
+          </HalfBoxWrapper>
         </Box>
-        <Paper
-          variant="outlined"
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '320px',
-            height: '280px',
-            borderColor: 'primary.light',
-            marginTop: '10px',
-            paddingBottom: '20px',
-          }}
-        >
-          <Charts date={toDay} />
-        </Paper>
-      </Stack>
+
+        <GrayFullDivider />
+
+        <Box>
+          <Typography
+            sx={{
+              fontSize: '16px',
+              fontWeight: '500',
+            }}
+          >
+            한달간 나의 감정
+          </Typography>
+          <MainBox width={'90vw'}>
+            <Box display={'flex'} justifyContent={'space-between'} width={1}>
+              <Box>
+                <Typography sx={{ fontSize: '14px', fontWeight: '500' }}>
+                  감정기록
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: '12px',
+                    color: 'gray',
+                    marginTop: '-4px',
+                  }}
+                >
+                  {toStringByFormatting(toDay)}.({dayName(toDay)})
+                </Typography>
+              </Box>
+              <InfoIcon />
+            </Box>
+
+            <Paper
+              variant="outlined"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '80vw',
+                height: '280px',
+                borderColor: 'primary.light',
+                marginTop: '10px',
+                paddingBottom: '20px',
+              }}
+            >
+              <Charts date={toDay} />
+            </Paper>
+          </MainBox>
+        </Box>
+
+        <GrayFullDivider />
+      </Box>
     </Layout>
   );
 };
