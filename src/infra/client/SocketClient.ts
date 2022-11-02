@@ -1,5 +1,4 @@
 import io, { Socket } from 'socket.io-client';
-import URL from 'utils/url';
 
 export class SocketClient {
   constructor(private socket: Socket | null = null, public connected = false) {}
@@ -23,7 +22,7 @@ export class SocketClient {
      *   인증 토큰 추가
      */
     if (this.socket === null) {
-      this.socket = io(`${URL.BASE}/realchat`, {
+      this.socket = io(`${process.env.BASE_URL}/realchat`, {
         transports: ['websocket', 'polling'],
         upgrade: false,
         forceNew: true,
