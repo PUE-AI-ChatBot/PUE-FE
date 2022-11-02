@@ -9,7 +9,7 @@
  * 7?. 2차 비밀번호 설정
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Info from '@components/profile/info';
 import History from '@components/profile/history';
 import Setting from '@components/profile/setting';
@@ -20,12 +20,14 @@ import { useRouter } from 'next/router';
 
 type IProfile = {};
 const Profile = ({}: IProfile) => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
-  if (status !== 'authenticated') {
-    router.replace('/enter');
-    return null;
-  }
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.replace('/enter');
+    }
+  }, [status]);
+
   return (
     <Box width={1} sx={{ overflowX: 'hidden' }}>
       <Stack
