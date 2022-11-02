@@ -10,6 +10,8 @@ const Info = () => {
    */
   const { data: session, status } = useSession();
 
+  console.log(session);
+
   return (
     <Box mt={'3rem'} mb={'2rem'} width={'21rem'}>
       <Meta
