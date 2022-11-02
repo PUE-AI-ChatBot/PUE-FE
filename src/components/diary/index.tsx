@@ -1,4 +1,5 @@
 import { Charts } from '@components/charts/Charts';
+import { MainBox } from '@components/main/boxs';
 import { getMonthEmotion } from '@helper/mock';
 import { Box, Typography } from '@mui/material';
 import moment from 'moment';
@@ -24,7 +25,13 @@ const Diary = () => {
   const { data: session, status } = useSession();
 
   return (
-    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt={4}>
+    <Box
+      display={'flex'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      mt={2}
+      gap={2}
+    >
       <Calendar
         formatDay={(locale: string, date: Date) => moment(date).format('D')}
         value={value}
@@ -45,10 +52,22 @@ const Diary = () => {
         }}
       />
 
-      <Typography color={'GrayText'} variant={'subtitle2'} sx={{ mt: 4 }}>
-        최근 한달동안 {session?.user?.name}님의 감정기록
-      </Typography>
-      <Charts date={toDay} />
+      <Box
+        display={'flex'}
+        width={1}
+        alignItems={'center'}
+        flexDirection={'column'}
+      >
+        <Typography
+          color={'GrayText'}
+          variant={'subtitle2'}
+          sx={{ display: 'flex', alignItems: 'flex-start' }}
+        >
+          최근 한달동안 나의 감정기록
+        </Typography>
+        <Charts date={toDay} />
+      </Box>
+
       <Box sx={{ height: '10vh' }} />
     </Box>
   );

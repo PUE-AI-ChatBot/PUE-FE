@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app';
 import '@helper/styles/globals.css';
 import '@helper/styles/calendar.css';
-import Navigation from '@components/navigation';
 import { CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
 import createTheme, { ToggleTheme } from '@helper/styles/defaultStyle';
 import React, { useMemo, useState } from 'react';
@@ -21,9 +20,7 @@ function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <SessionProvider session={pageProps.session}>
           <CssBaseline />
-          <Navigation>
-            <Component {...pageProps} />
-          </Navigation>
+          <Component {...pageProps} />
         </SessionProvider>
       </ThemeProvider>
     </ToggleTheme.Provider>
