@@ -14,6 +14,7 @@ const SettingItem = ({ leftIcon, handlerBtn, title }: IItem) => {
       raised={raised}
       onMouseOver={() => setRaised(true)}
       onMouseOut={() => setRaised(false)}
+      sx={{ borderRadius: '1.5rem', p: '1.2rem' }}
     >
       <Box
         sx={{
