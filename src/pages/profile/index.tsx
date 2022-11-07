@@ -17,6 +17,7 @@ import Footer from '@components/profile/footer';
 import { Box, Stack } from '@mui/material';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import BackArrow from '@components/profile/BackArrow';
 
 type IProfile = {};
 const Profile = ({}: IProfile) => {
@@ -30,6 +31,7 @@ const Profile = ({}: IProfile) => {
 
   return (
     <Box width={1} sx={{ overflowX: 'hidden' }}>
+      <BackArrow />
       <Stack
         width={'fit-content'}
         spacing={'2.5rem'}

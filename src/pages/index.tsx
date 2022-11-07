@@ -72,7 +72,11 @@ const Main: NextPage = () => {
                 </Typography>
               }
             ></Chip>
-            <MainBox flexDirection={'column'} width={'100px'}>
+            <MainBox
+              flexDirection={'column'}
+              width={'120px'}
+              sx={{ paddingX: 0 }}
+            >
               <Typography sx={{ fontWeight: '400' }}> 오늘 기분 </Typography>
               <WbSunnyIcon
                 color={'primary'}
