@@ -1,23 +1,6 @@
 import { StatisticsResult } from '@components/charts/option/Series';
-import { Message } from '@application/chat/Adaptor';
-import moment from 'moment';
+
 import { DayEmotion } from '@components/diary/emotion/DayEmotion';
-export const MOCK_MESSAGE: Message = {
-  writeAt: moment(),
-  text: 'hello this is mock',
-  user: {
-    name: 'PUE',
-    photo: 'mock photo url',
-  },
-};
-export const MOCK_SEND_MESSAGE: Message = {
-  writeAt: moment(),
-  text: 'hello?',
-  user: {
-    name: 'YOU',
-    photo: 'mock photo url',
-  },
-};
 
 export const MOCK_STATISTICS: StatisticsResult = {
   total: 3,
@@ -30,7 +13,6 @@ export const MOCK_STATISTICS: StatisticsResult = {
     질투: 2,
     슬픔: 0,
     죄책감: 0,
-    연민: 0,
   },
 };
 
@@ -47,11 +29,8 @@ const MOCK_EMOJI = [
   '걱정',
   null,
   '걱정',
-  '연민',
   '기쁨',
   null,
-  '연민',
-  '연민',
   '기쁨',
   null,
   '기쁨',

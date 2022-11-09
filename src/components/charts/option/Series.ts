@@ -13,7 +13,6 @@ export interface StatisticsResult {
     질투: number;
     슬픔: number;
     죄책감: number;
-    연민: number;
   };
 }
 
@@ -31,7 +30,6 @@ export const seriesData = ({
     질투: '#800000',
     슬픔: '#191970',
     죄책감: '#4b0082',
-    연민: '#808080',
   };
 
   const dataOption: string[] = [];

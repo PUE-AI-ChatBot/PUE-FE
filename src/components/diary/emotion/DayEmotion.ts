@@ -9,7 +9,6 @@ export interface DayEmotion {
     | '질투'
     | '슬픔'
     | '죄책감'
-    | '연민'
     | '분노'
     | string
     | null;

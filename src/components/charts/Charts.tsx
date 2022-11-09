@@ -35,7 +35,6 @@ export const Charts = ({ date }: IDate) => {
       질투: 0,
       슬픔: 3,
       죄책감: 0,
-      연민: 3,
     },
   };
   if (!statData) return <div> Loading...! </div>;

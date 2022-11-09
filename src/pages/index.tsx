@@ -170,21 +170,17 @@ const Main: NextPage = () => {
               <InfoIcon />
             </Box>
 
-            <Paper
-              variant="outlined"
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '80vw',
-                height: '280px',
-                borderColor: 'primary.light',
-                marginTop: '10px',
-                paddingBottom: '20px',
-              }}
+            <Box
+              display={'flex'}
+              justifyContent={'center'}
+              border={1}
+              width={'80vw'}
+              borderColor={'primary.light'}
+              borderRadius={2}
+              paddingY={2}
             >
               <Charts date={toDay} />
-            </Paper>
+            </Box>
           </MainBox>
         </Box>
 
